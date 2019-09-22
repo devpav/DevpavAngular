@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.ico",,
               "src/assets"
             ],
             "styles": [
@@ -121,6 +121,41 @@
             "production": {
               "devServerTarget": "devpav:serve:production"
             }
+          }
+        }
+      }
+    },
+    "devpav-angular": {
+      "projectType": "library",
+      "root": "projects/devpav-angular",
+      "sourceRoot": "projects/devpav-angular/src",
+      "prefix": "devpav",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/devpav-angular/tsconfig.lib.json",
+            "project": "projects/devpav-angular/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/devpav-angular/src/test.ts",
+            "tsConfig": "projects/devpav-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/devpav-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/devpav-angular/tsconfig.lib.json",
+              "projects/devpav-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

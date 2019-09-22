@@ -1,0 +1,12 @@
+{
+  "name": "devpav-angular",
+  "author": "Pavel Talaika",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.7",
+    "@angular/core": "^8.2.7"
+  },
+  "scripts": {
+    "build:lib": "ng-packagr -p ng-package.json"
+  }
+}

@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "devpav-angular": [
+        "dist/devpav-angular"
+      ],
+      "devpav-angular/*": [
+        "dist/devpav-angular/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
