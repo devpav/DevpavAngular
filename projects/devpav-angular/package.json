@@ -1,12 +1,29 @@
 {
-  "name": "devpav-angular",
+  "name": "ngx-devpav-angular",
   "author": "Pavel Talaika",
   "version": "0.0.1",
+  "homepage": "https://github.com/devpav/DevpavAngular",
+  "license": "MIT",
+  "keywords": [
+    "angular8",
+    "components",
+    "angular material"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devpav/DevpavAngular.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devpav/DevpavAngular/issues",
+    "email": "devpavdeveloper@gmail.com"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.7",
     "@angular/core": "^8.2.7"
   },
-  "scripts": {
-    "build:lib": "ng-packagr -p ng-package.json"
-  }
+  "devDependencies": {
+    "scss-bundle": "^3.0.1",
+    "ts-node": "^8.4.1"
+  },
+  "dependencies": {}
 }

@@ -1,8 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NgxDevpavSelectModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-select/ngx-devpav-select.module';
+import {NgxDevpavThemeModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-theme/ngx-devpav-theme.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxDevpavSelectModule,
+    NgxDevpavThemeModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,11 +24,12 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
-              "src/favicon.ico",,
+              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "dist/devpav-angular/_theme.scss"
             ],
             "scripts": []
           },
@@ -159,6 +160,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "devpav"
+    }
+  },
+  "defaultProject": "devpav",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

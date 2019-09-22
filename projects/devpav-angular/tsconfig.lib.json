@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2015",
+    "module": "commonjs",
+    "target": "es2019",
     "declaration": true,
     "inlineSources": true,
     "types": [],

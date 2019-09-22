@@ -1,0 +1,22 @@
+.ngx-devpav-select {
+  height: 40px;
+  background: var(--ngx-devpav-default-color);
+  position: relative;
+  border: var(--ngx-devpav-form-input-border);
+
+  .ngx-devpav-select_panel {
+    width: 100%;
+  }
+
+  .ngx-devpav-select_dropdown {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: auto;
+    padding: 10px;
+    background: var(--ngx-devpav-default-color);
+    border: var(--ngx-devpav-form-input-border);
+  }
+}
+

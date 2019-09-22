@@ -5,13 +5,15 @@
       true,
       "attribute",
       "devpav",
-      "camelCase"
+      "camelCase",
+      "ngx"
     ],
     "component-selector": [
       true,
       "element",
       "devpav",
-      "kebab-case"
+      "kebab-case",
+      "ngx"
     ]
   }
 }
