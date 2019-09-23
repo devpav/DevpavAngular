@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NgxDevpavSelectModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-select/ngx-devpav-select.module';
 import {NgxDevpavThemeModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-theme/ngx-devpav-theme.module';
+import {NgxDevpavFormInputModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-form-input/ngx-devpav-form-input.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {NgxDevpavThemeModule} from '../../projects/devpav-angular/src/lib/ngx-de
     BrowserModule,
     AppRoutingModule,
     NgxDevpavSelectModule,
-    NgxDevpavThemeModule.forRoot()
+    NgxDevpavThemeModule.forRoot(),
+    NgxDevpavFormInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,10 @@
+input.ngx-devpav-input {
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  padding-left: 15px;
+  outline: none !important;
+  color: var(----ngx-devpav-primary-color);
+  background: var(--ngx-devpav-default-color);
+  border: var(--ngx-devpav-form-input-border);
+}
