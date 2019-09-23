@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {dark, light, Theme} from './theme.config';
+import {dark, light, Theme} from '../theme.config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DevpavAngularThemeService {
+export class NgxDevpavThemeService {
 
   private map = new Map<string, Theme>();
 

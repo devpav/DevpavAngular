@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DevpavAngularThemeService} from '../../projects/devpav-angular/src/lib/devpav-angular.service';
+import {NgxDevpavThemeService} from '../../projects/devpav-angular/src/lib/ngx-devpav-theme/ngx-devpav-theme.service';
 
 @Component({
   selector: 'devpav-root',
@@ -9,7 +9,7 @@ import {DevpavAngularThemeService} from '../../projects/devpav-angular/src/lib/d
 export class AppComponent {
   title = 'devpav';
 
-  constructor(private themeService: DevpavAngularThemeService) {
+  constructor(private themeService: NgxDevpavThemeService) {
     console.log(this.themeService.getListTheme());
     this.themeService.setTheme('dark');
   }

@@ -1,24 +1,10 @@
-<div class="wrapper">
+<header>
+  <button (click)="setDarkTheme()">Dark theme</button>
+  <button (click)="setLightTheme()">Light theme</button>
+</header>
 
-  <header>
-    <button (click)="setDarkTheme()">Dark theme</button>
-    <button (click)="setLightTheme()">Light theme</button>
-  </header>
+<section class="wrapper-content">
+  <ngx-devpav-select></ngx-devpav-select>
+</section>
 
-  <section class="wrapper-content">
-    <nav class="ng-devpav-left-menu">
-      <ul>
-        <li>Buttons</li>
-        <li>Textareas</li>
-        <li>Inputs</li>
-      </ul>
-    </nav>
-    <nav class="ng-devpav-right-content">
-      <ngx-devpav-select></ngx-devpav-select>
-    </nav>
-
-  </section>
-
-  <footer></footer>
-
-</div>
+<footer></footer>
