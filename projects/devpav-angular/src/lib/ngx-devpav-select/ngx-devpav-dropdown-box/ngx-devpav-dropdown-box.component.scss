@@ -1,19 +1,46 @@
 .ngx-devpav-dropdown-box {
-
   .ngx-devpav-dropdown-box_search-line {
     width: 100%;
+    margin-bottom: 10px;
+
+    border: none !important;
   }
 
-  .ngx-devpav-dropdown-box_search-line label input[type="text"] {
+  .ngx-devpav-dropdown-box_search-line > ngx-devpav-form-input {
     width: 100%;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.03);
   }
 
   .ngx-devpav-dropdown-box_list {
-
+    background: var(--ngx-devpav-default-color);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
+    overflow: scroll;
+    height: auto;
+    max-height: 225px;
+    overflow-x: hidden;
+  }
+  .ngx-devpav-dropdown-box_list::-webkit-scrollbar {
+    background: var(--ngx-devpav-default-color);
+    cursor: pointer;
+  }
+  .ngx-devpav-dropdown-box_list::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: var(--ngx-devpav-default-font-color);
   }
 
   .ngx-devpav-dropdown-box_list-item {
-
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+    height: 55px;
+    background:  var(--ngx-devpav-default-color);
+    cursor: pointer;
   }
 
+  .ngx-devpav-dropdown-box_list-item:hover {
+    background: #3d3d3d;
+  }
 }

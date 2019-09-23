@@ -1,12 +1,11 @@
 <div class="ngx-devpav-dropdown-box">
   <div class="ngx-devpav-dropdown-box_search-line">
-    <label>
-      <input type="text">
-    </label>
+    <ngx-devpav-form-input (inputValue)="searchLine = $event"></ngx-devpav-form-input>
   </div>
   <div class="ngx-devpav-dropdown-box_list">
-    <div class="ngx-devpav-dropdown-box_list-item">
-
+    <div *ngFor="let it of (values | filterPipe:searchLine:'value')"
+         class="ngx-devpav-dropdown-box_list-item">
+      {{it.value}}
     </div>
   </div>
 </div>

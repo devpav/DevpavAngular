@@ -5,11 +5,13 @@ import {NgxDevpavDropdownBoxComponent} from './ngx-devpav-dropdown-box/ngx-devpa
 import {HttpClientModule} from '@angular/common/http';
 import {NgxDevpavIconModule} from '../ngx-devpav-icon/ngx-devpav-icon.module';
 import {NgxDevpavFormInputModule} from '../ngx-devpav-form-input/ngx-devpav-form-input.module';
+import {FilterPipe} from './filter-pipe.pipe';
 
 @NgModule({
   declarations: [
     NgxDevpavSelectComponent,
-    NgxDevpavDropdownBoxComponent
+    NgxDevpavDropdownBoxComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import {NgxDevpavFormInputModule} from '../ngx-devpav-form-input/ngx-devpav-form
     NgxDevpavFormInputModule
   ],
   exports: [
-    NgxDevpavSelectComponent
+    NgxDevpavSelectComponent,
+    NgxDevpavDropdownBoxComponent
   ]
 })
 export class NgxDevpavSelectModule {
