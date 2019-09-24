@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {NgxDevpavIconService} from '../ngx-devpav-icon.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {NgxDevpavIconService} from '../ngx-devpav-icon.service';
   templateUrl: './ngx-devpav-icon.component.html',
   styleUrls: ['./ngx-devpav-icon.component.scss']
 })
-export class NgxDevpavIconComponent implements OnInit, AfterViewInit {
+export class NgxDevpavIconComponent implements OnInit, AfterViewInit, OnChanges {
 
   @ViewChild('icon', { static: false }) element: ElementRef;
 
@@ -36,6 +36,14 @@ export class NgxDevpavIconComponent implements OnInit, AfterViewInit {
 
     if (this.fill) {
       this.element.nativeElement.style = `fill: ${this.fill}`;
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes && changes.fill) {
+      if (this.fill && this.element) {
+        this.element.nativeElement.style = `fill: ${this.fill}`;
+      }
     }
   }
 

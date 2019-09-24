@@ -12,7 +12,7 @@
   }
 
   .ngx-devpav-dropdown-box_list {
-    background: var(--ngx-devpav-default-color);
+    background: var(--ngx-devpav-dropdown-background-color);
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.08);
     overflow: scroll;
     height: auto;
@@ -20,27 +20,40 @@
     overflow-x: hidden;
   }
   .ngx-devpav-dropdown-box_list::-webkit-scrollbar {
-    background: var(--ngx-devpav-default-color);
+    background: var(--ngx-devpav-dropdown-scrollbar-background-color);
+    width: 10px;
     cursor: pointer;
   }
   .ngx-devpav-dropdown-box_list::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background: var(--ngx-devpav-default-font-color);
+    background: var(--ngx-devpav-dropdown-scrollbar-thumb-background-color);
   }
 
   .ngx-devpav-dropdown-box_list-item {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
     height: 55px;
-    background:  var(--ngx-devpav-default-color);
+    color: var(--ngx-devpav-dropdown-item-font-color);
+    background: var(--ngx-devpav-dropdown-item-background-color);
     cursor: pointer;
+
+    .ngx-devpav-dropdown-box_list-item_icon {
+      fill: var(--ngx-devpav-dropdown-item-icon-color);
+    }
   }
 
   .ngx-devpav-dropdown-box_list-item:hover {
-    background: #3d3d3d;
+    background: var(--ngx-devpav-dropdown-item-background-color-hover);
+    color: var(--ngx-devpav-dropdown-item-font-color-hover);
   }
+  .ngx-devpav-dropdown-box_list-item:hover .ngx-devpav-dropdown-box_list-item_icon {
+      fill: var(--ngx-devpav-dropdown-item-icon-color-hover);
+  }
+
 }

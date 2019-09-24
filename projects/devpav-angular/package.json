@@ -1,7 +1,7 @@
 {
   "name": "ngx-devpav-angular",
   "author": "Pavel Talaika",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/devpav/DevpavAngular",
   "license": "MIT",
   "keywords": [
@@ -23,7 +23,8 @@
   },
   "devDependencies": {
     "scss-bundle": "^3.0.1",
-    "ts-node": "^8.4.1"
+    "ts-node": "^8.4.1",
+    "@angular/cdk": "latest"
   },
   "dependencies": {}
 }

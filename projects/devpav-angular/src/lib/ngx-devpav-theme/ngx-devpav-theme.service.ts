@@ -43,6 +43,10 @@ export class NgxDevpavThemeService {
     return themes.map(theme => ({...theme}));
   }
 
+  getCloneTheme(nameTheme: string) {
+    return { ... this.map.get(nameTheme) };
+  }
+
   setTheme(nameTheme: string) {
     const theme = this.map.get(nameTheme);
 

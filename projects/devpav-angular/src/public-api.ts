@@ -9,3 +9,6 @@ export * from './lib/ngx-devpav-form-input/ngx-devpav-form-input.module';
 
 // services
 export * from './lib/ngx-devpav-theme/ngx-devpav-theme.service';
+
+// interfaces
+export { Theme } from './lib/theme.config';

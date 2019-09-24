@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~dist/devpav-angular/theme";
+
+:root {
+}
+
 body {
   background: var(--ngx-devpav-background);
-  color: var(--ngx-devpav-default-font-color);
 }

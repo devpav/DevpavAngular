@@ -33,7 +33,6 @@ export class NgxDevpavIconService {
   }
 
   private transformSvgIcon(svg: string, ngxDevpavIcon: NgxDevpavIcon) {
-    console.log('transformSvgIcon: ', svg, ngxDevpavIcon);
     if (svg) {
       let svgClone = svg + '';
       if (ngxDevpavIcon.width) {
@@ -42,10 +41,6 @@ export class NgxDevpavIconService {
       if (ngxDevpavIcon.height) {
         svgClone = svgClone.replace('height="24"', `height="${ngxDevpavIcon.height}"`);
       }
-/*      if (ngxDevpavIcon.fill) {
-        svgClone = svgClone.replace('fill="none"', `fill="${ngxDevpavIcon.fill}"`);
-      }*/
-      console.log('return svg: ', svg, ngxDevpavIcon);
       return svgClone;
     }
     return svg;

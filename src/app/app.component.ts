@@ -11,14 +11,14 @@ export class AppComponent {
 
   constructor(private themeService: NgxDevpavThemeService) {
     console.log(this.themeService.getListTheme());
-    this.themeService.setTheme('dark');
+    this.themeService.setTheme('ngx-devpav-dark');
   }
 
   setDarkTheme() {
-    this.themeService.setTheme('dark');
+    this.themeService.setTheme('ngx-devpav-dark');
   }
 
   setLightTheme() {
-    this.themeService.setTheme('light');
+    this.themeService.setTheme('ngx-devpav-light');
   }
 }
