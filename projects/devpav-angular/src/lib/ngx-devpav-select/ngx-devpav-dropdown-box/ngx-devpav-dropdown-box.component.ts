@@ -1,5 +1,11 @@
-import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
+
+export interface NgxDevpavDropdownBox {
+  defaultSearchLine?: string;
+  isSearchLine: boolean;
+  isMultiple?: boolean;
+}
 
 @Component({
   selector: 'ngx-devpav-dropdown-box',
@@ -7,24 +13,28 @@ import {SelectionModel} from '@angular/cdk/collections';
   styleUrls: ['./ngx-devpav-dropdown-box.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit {
+export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit, OnChanges {
 
-  selection: SelectionModel<any>;
+  private selection: SelectionModel<any>;
 
-  items = [];
+  @Input()
+  items: any[];
+
+  @Input()
   selectedItems: any[] = [];
-  multiple: boolean;
 
   searchLine: string;
 
   constructor() {}
 
-  ngOnInit() {
-    this.selection = new SelectionModel<any>(this.multiple, this.selectedItems);
+  @Input()
+  configDropdown: NgxDevpavDropdownBox = {
+    isMultiple: false,
+    isSearchLine: false
+  };
 
-    for (let i = 0; i < 100; i++) {
-      this.items.push({ value: `value ${i}`});
-    }
+  ngOnInit() {
+    this.selection = new SelectionModel<any>(this.configDropdown.isMultiple, this.selectedItems);
   }
 
   ngAfterViewInit(): void {
@@ -33,6 +43,9 @@ export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit {
 
   toggleItem(item: any) {
     this.selection.toggle(item);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
   }
 
 }

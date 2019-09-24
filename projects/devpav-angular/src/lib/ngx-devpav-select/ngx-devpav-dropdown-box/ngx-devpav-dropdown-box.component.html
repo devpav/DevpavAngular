@@ -1,37 +1,18 @@
 <div class="ngx-devpav-dropdown-box">
-  <div class="ngx-devpav-dropdown-box_search-line">
+  <div *ngIf="configDropdown?.isSearchLine" class="ngx-devpav-dropdown-box_search-line">
     <ngx-devpav-form-input (inputValue)="searchLine = $event" ph="Search"></ngx-devpav-form-input>
   </div>
   <div class="ngx-devpav-dropdown-box_list">
-<!--
-    <div class="ngx-devpav-dropdown-box_list-item"
-         (click)="toggleItem(it)"
-         *ngFor="let it of (items | filterPipe:searchLine:'value') as result">
-      {{it.value}}
-      <ngx-devpav-icon
-        *ngIf="selection.isSelected(it)"
-        class="ngx-devpav-dropdown-box_list-item_icon"
-        name="done"
-        width="25"
-        height="19"></ngx-devpav-icon>
-
-    </div>
--->
-
-
     <ng-container *ngIf="(items | filterPipe:searchLine:'value') as result">
-
       <div *ngFor="let it of result" class="ngx-devpav-dropdown-box_list-item" (click)="toggleItem(it)">
         {{it.value}}
         <ngx-devpav-icon *ngIf="selection.isSelected(it)"
-          class="ngx-devpav-dropdown-box_list-item_icon"
-          name="done"
-          width="25"
-          height="19"></ngx-devpav-icon>
+                         class="ngx-devpav-dropdown-box_list-item_icon"
+                         name="done"
+                         width="25"
+                         height="25"></ngx-devpav-icon>
       </div>
-
-      <div *ngIf="result.length === 0">Not found</div>
-
+      <div *ngIf="result.length === 0" class="ngx-devpav-dropdown-box_list-item-not-found">Not found</div>
     </ng-container>
 
   </div>

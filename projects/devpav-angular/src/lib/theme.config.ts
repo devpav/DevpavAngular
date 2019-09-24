@@ -47,8 +47,8 @@ export const light: Theme = {
 
     'ngx-devpav-dropdown-item-font-color': '#383838',
     'ngx-devpav-dropdown-item-background-color': '#ffffff',
-    'ngx-devpav-dropdown-item-icon-color-hover': '#f4f4f4',
-    'ngx-devpav-dropdown-item-icon-color': '#f4f4f4',
+    'ngx-devpav-dropdown-item-icon-color-hover': '#959595',
+    'ngx-devpav-dropdown-item-icon-color': '#959595',
 
     'ngx-devpav-dropdown-background-color': '#fff',
 
@@ -87,7 +87,7 @@ export const dark: Theme = {
     'ngx-devpav-dropdown-item-font-color-hover': '#fff',
     'ngx-devpav-dropdown-item-background-color-hover': '#1f2935',
 
-    'ngx-devpav-dropdown-scrollbar-background-color': '#3a3a3a',
-    'ngx-devpav-dropdown-scrollbar-thumb-background-color': '#939393',
+    'ngx-devpav-dropdown-scrollbar-background-color': '#252e3a',
+    'ngx-devpav-dropdown-scrollbar-thumb-background-color': '#b4b4b4',
   }
 };
