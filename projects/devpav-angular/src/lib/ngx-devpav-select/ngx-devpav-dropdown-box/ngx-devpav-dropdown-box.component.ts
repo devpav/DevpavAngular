@@ -1,10 +1,25 @@
-import {AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
+import {Subscription} from 'rxjs';
 
-export interface NgxDevpavDropdownBox {
+export interface NgxDevpavDropdownBoxConfig {
   defaultSearchLine?: string;
   isSearchLine: boolean;
   isMultiple?: boolean;
+  labelField: string;
+  keyField: string;
+  textSearchLine: string;
 }
 
 @Component({
@@ -13,9 +28,10 @@ export interface NgxDevpavDropdownBox {
   styleUrls: ['./ngx-devpav-dropdown-box.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit, OnChanges {
+export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
-  private selection: SelectionModel<any>;
+  selection: SelectionModel<any>;
+  private subscription = new Subscription();
 
   @Input()
   items: any[];
@@ -25,16 +41,29 @@ export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit, OnC
 
   searchLine: string;
 
-  constructor() {}
+  @Output()
+  private changes = new EventEmitter<any[]>();
+
+  constructor() {
+  }
 
   @Input()
-  configDropdown: NgxDevpavDropdownBox = {
+  configDropdown: NgxDevpavDropdownBoxConfig = {
     isMultiple: false,
-    isSearchLine: false
+    isSearchLine: false,
+    labelField: 'value',
+    keyField: 'id',
+    textSearchLine: 'Search'
   };
 
   ngOnInit() {
     this.selection = new SelectionModel<any>(this.configDropdown.isMultiple, this.selectedItems);
+
+    const subscriberChangeSelector = this.selection.changed.subscribe(() => {
+      this.changes.emit(this.selection.selected);
+    });
+
+    this.subscription.add(subscriberChangeSelector);
   }
 
   ngAfterViewInit(): void {
@@ -46,6 +75,10 @@ export class NgxDevpavDropdownBoxComponent implements OnInit, AfterViewInit, OnC
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

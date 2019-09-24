@@ -28,6 +28,8 @@ export interface ThemeStyle {
   'ngx-devpav-dropdown-scrollbar-thumb-background-color': string;
   'ngx-devpav-dropdown-scrollbar-background-color': string;
 
+  'ngx-devpav-select-panel-arrow-color': string;
+
 }
 
 export const light: Theme = {
@@ -58,6 +60,7 @@ export const light: Theme = {
     'ngx-devpav-dropdown-scrollbar-thumb-background-color': '#b4b4b4',
     'ngx-devpav-dropdown-scrollbar-background-color': '#f4f4f4',
 
+    'ngx-devpav-select-panel-arrow-color': '#000000'
   }
 };
 
@@ -89,5 +92,7 @@ export const dark: Theme = {
 
     'ngx-devpav-dropdown-scrollbar-background-color': '#252e3a',
     'ngx-devpav-dropdown-scrollbar-thumb-background-color': '#b4b4b4',
+
+    'ngx-devpav-select-panel-arrow-color': '#ffffff'
   }
 };

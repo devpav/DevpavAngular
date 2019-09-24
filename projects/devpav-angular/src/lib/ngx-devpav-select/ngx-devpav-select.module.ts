@@ -6,6 +6,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxDevpavIconModule} from '../ngx-devpav-icon/ngx-devpav-icon.module';
 import {NgxDevpavFormInputModule} from '../ngx-devpav-form-input/ngx-devpav-form-input.module';
 import {FilterPipe} from './filter-pipe.pipe';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxDevpavChipModule} from '../ngx-devpav-chip/ngx-devpav-chip.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {FilterPipe} from './filter-pipe.pipe';
     CommonModule,
     HttpClientModule,
     NgxDevpavIconModule,
-    NgxDevpavFormInputModule
+    NgxDevpavFormInputModule,
+    BrowserAnimationsModule,
+    NgxDevpavChipModule
   ],
   exports: [
     NgxDevpavSelectComponent,

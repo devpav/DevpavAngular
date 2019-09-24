@@ -1,0 +1,17 @@
+.devpav-chip {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  cursor: pointer;
+  height: 40px;
+  width: fit-content;
+  border: var(--ngx-devpav-form-input-border);
+  color: black;
+  background: white;
+}
+
+.devpav-chip ngx-devpav-icon {
+  margin-left: 10px;
+}

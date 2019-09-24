@@ -1,0 +1,9 @@
+<div class="devpav-chip" (click)="handlerClickChip($event)" (mouseover)="mouseover($event)"
+     (mouseleave)="mouseout($event)">
+  <span>{{value}}</span>
+  <ngx-devpav-icon [@activeAnimation]="stateVisible"
+                   [name]="icon"
+                   (click)="handlerClickIcon($event)">
+  </ngx-devpav-icon>
+</div>
+

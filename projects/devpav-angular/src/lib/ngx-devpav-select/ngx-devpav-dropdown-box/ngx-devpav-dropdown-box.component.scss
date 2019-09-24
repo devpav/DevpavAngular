@@ -18,7 +18,9 @@
     height: auto;
     max-height: 220px;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
+
   .ngx-devpav-dropdown-box_list::-webkit-scrollbar {
     background: var(--ngx-devpav-dropdown-scrollbar-background-color);
     width: 10px;

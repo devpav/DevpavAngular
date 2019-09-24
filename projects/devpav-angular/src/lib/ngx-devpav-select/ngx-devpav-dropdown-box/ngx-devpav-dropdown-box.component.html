@@ -1,11 +1,14 @@
 <div class="ngx-devpav-dropdown-box">
   <div *ngIf="configDropdown?.isSearchLine" class="ngx-devpav-dropdown-box_search-line">
-    <ngx-devpav-form-input (inputValue)="searchLine = $event" ph="Search"></ngx-devpav-form-input>
+    <ngx-devpav-form-input [value]="configDropdown?.defaultSearchLine"
+                           (inputValue)="searchLine = $event"
+                           [ph]="configDropdown?.textSearchLine">
+    </ngx-devpav-form-input>
   </div>
   <div class="ngx-devpav-dropdown-box_list">
     <ng-container *ngIf="(items | filterPipe:searchLine:'value') as result">
       <div *ngFor="let it of result" class="ngx-devpav-dropdown-box_list-item" (click)="toggleItem(it)">
-        {{it.value}}
+        {{it[configDropdown?.labelField]}}
         <ngx-devpav-icon *ngIf="selection.isSelected(it)"
                          class="ngx-devpav-dropdown-box_list-item_icon"
                          name="done"
@@ -14,6 +17,5 @@
       </div>
       <div *ngIf="result.length === 0" class="ngx-devpav-dropdown-box_list-item-not-found">Not found</div>
     </ng-container>
-
   </div>
 </div>

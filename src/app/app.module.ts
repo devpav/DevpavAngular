@@ -3,11 +3,8 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {
-  NgxDevpavFormInputModule,
-  NgxDevpavSelectModule,
-  NgxDevpavThemeModule
-} from 'projects/devpav-angular/src/public-api';
+import {NgxDevpavFormInputModule, NgxDevpavSelectModule, NgxDevpavThemeModule} from 'projects/devpav-angular/src/public-api';
+import {NgxDevpavChipModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-chip/ngx-devpav-chip.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +15,8 @@ import {
     AppRoutingModule,
     NgxDevpavSelectModule,
     NgxDevpavThemeModule.forRoot(),
-    NgxDevpavFormInputModule
+    NgxDevpavFormInputModule,
+    NgxDevpavChipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

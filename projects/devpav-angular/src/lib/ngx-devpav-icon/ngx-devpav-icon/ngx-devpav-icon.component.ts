@@ -30,19 +30,29 @@ export class NgxDevpavIconComponent implements OnInit, AfterViewInit, OnChanges 
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    const iconConfig = { fill: this.fill, height: this.height, width: this.width };
-    this.contentIcon = this.ngxDevpavIconService.getIcon(this.name, iconConfig);
-    this.element.nativeElement.innerHTML = this.contentIcon;
-
+    this.setElementIcon();
     if (this.fill) {
       this.element.nativeElement.style = `fill: ${this.fill}`;
     }
   }
 
+  setElementIcon = () => {
+    const iconConfig = { fill: this.fill, height: this.height, width: this.width };
+    this.contentIcon = this.ngxDevpavIconService.getIcon(this.name, iconConfig);
+    if (this.element) {
+      this.element.nativeElement.innerHTML = this.contentIcon;
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes && changes.fill) {
-      if (this.fill && this.element) {
-        this.element.nativeElement.style = `fill: ${this.fill}`;
+    if (changes) {
+      if (changes.name) {
+          this.setElementIcon();
+      }
+      if (changes.fill) {
+        if (this.fill && this.element) {
+          this.element.nativeElement.style = `fill: ${this.fill}`;
+        }
       }
     }
   }
