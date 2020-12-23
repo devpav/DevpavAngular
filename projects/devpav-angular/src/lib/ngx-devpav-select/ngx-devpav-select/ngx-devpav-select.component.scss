@@ -4,50 +4,39 @@
   position: relative;
   border: var(--ngx-devpav-form-input-border);
 
-  .ngx-devpav-select_panel {
+  &__panel {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     min-height: 40px;
-
-    height: auto;
-    margin-bottom: 10px;
+    height: 100%;
     padding-left: 15px;
     padding-right: 15px;
     box-sizing: border-box;
     cursor: pointer;
     color: var(--ngx-devpav-default-font-color);
 
-    .ngx-devpav-select_panel-multiple {
+    &__panel-multiple {
       display: flex;
       flex-wrap: wrap;
+      width: 100%;
       justify-content: center;
       align-items: center;
-      height: auto;
-      padding: 5px;
-      flex-shrink: revert;
-
-      ngx-devpav-chip {
-        margin-right: 10px;
-        margin-bottom: 10px;
-      }
-
+      padding: 10px 0 10px 0;
     }
 
-    .ngx-devpav-select_panel_icon {
+    &__panel_icon {
       fill: var(--ngx-devpav-select-panel-arrow-color);
     }
   }
 
   .ngx-devpav-select_dropdown {
     position: absolute;
-    top: auto;
+    top: 120%;
     left: 0;
     right: 0;
-    height: auto;
-    width: auto;
     overflow: inherit;
   }
 }

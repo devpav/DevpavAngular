@@ -85,4 +85,12 @@ export class NgxDevpavSelectComponent implements OnInit {
   getCurrentArrow() {
     return this.statusDropdown ? 'arrow-down' : 'arrow-up';
   }
+
+  isSingle(): boolean {
+    return !!this.selectedItems && this.selectedItems.length > 0 && !this.config.isMultiple;
+  }
+
+  isNotSelected(): boolean {
+    return !this.selectedItems || this.selectedItems.length === 0;
+  }
 }

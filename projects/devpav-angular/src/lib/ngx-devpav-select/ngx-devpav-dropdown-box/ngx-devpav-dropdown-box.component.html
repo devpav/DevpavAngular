@@ -9,8 +9,7 @@
     <ng-container *ngIf="(items | filterPipe:searchLine:'value') as result">
       <div *ngFor="let it of result" class="ngx-devpav-dropdown-box_list-item" (click)="toggleItem(it)">
         {{it[configDropdown?.labelField]}}
-        <ngx-devpav-icon *ngIf="selection.isSelected(it)"
-                         class="ngx-devpav-dropdown-box_list-item_icon"
+        <ngx-devpav-icon class="ngx-devpav-dropdown-box_list-item_icon"
                          name="done"
                          width="25"
                          height="25"></ngx-devpav-icon>

@@ -9,32 +9,32 @@ export class NgxDevpavThemeService {
   private map = new Map<string, Theme>();
 
   constructor() {
-    this.map.set(light.name, light);
-    this.map.set(dark.name, dark);
+    this.map.set(light.id, light);
+    this.map.set(dark.id, dark);
   }
+
 
   registerTheme(theme: Theme) {
     if (!theme) {
       throw Error('Theme must be not undefined or null');
     }
-    if (!theme.name) {
+    if (!theme.id) {
       throw Error('Theme\'s name must be not undefined or null');
     }
-    if (!theme.name) {
-      throw Error('Theme with the same name already exists');
-    }
 
-    this.map.set(theme.name, theme);
+    this.map.set(theme.id, theme);
+
     return this;
   }
 
   unregisterTheme(nameTheme: string) {
-    if (nameTheme === light.name) {
+    if (nameTheme === light.id) {
       return;
     }
-    if (nameTheme === dark.name) {
+    if (nameTheme === dark.id) {
       return;
     }
+
     this.map.delete(nameTheme);
   }
 
@@ -54,9 +54,9 @@ export class NgxDevpavThemeService {
       return;
     }
 
-    const functionSetPropertyCSS = (k: string) => document.documentElement.style.setProperty(`--${k}`, theme.properties[k]);
+    const functionSetPropertyCSS = (k: string) => document.documentElement.style.setProperty(`--${k}`, theme.style[k]);
 
-    Object.keys(theme.properties)
+    Object.keys(theme.style)
       .forEach(functionSetPropertyCSS);
   }
 

@@ -19,55 +19,60 @@
     max-height: 220px;
     overflow-x: hidden;
     scroll-behavior: smooth;
-  }
 
-  .ngx-devpav-dropdown-box_list::-webkit-scrollbar {
-    background: var(--ngx-devpav-dropdown-scrollbar-background-color);
-    width: 10px;
-    cursor: pointer;
-  }
-  .ngx-devpav-dropdown-box_list::-webkit-scrollbar-thumb {
-    cursor: pointer;
-    background: var(--ngx-devpav-dropdown-scrollbar-thumb-background-color);
-  }
+    .ngx-devpav-dropdown-box_list-item {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 15px;
+      padding-right: 25px;
+      box-sizing: border-box;
+      height: 55px;
+      color: var(--ngx-devpav-dropdown-item-font-color);
+      background: var(--ngx-devpav-dropdown-item-background-color);
+      cursor: pointer;
 
-  .ngx-devpav-dropdown-box_list-item {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 15px;
-    padding-right: 25px;
-    box-sizing: border-box;
-    height: 55px;
-    color: var(--ngx-devpav-dropdown-item-font-color);
-    background: var(--ngx-devpav-dropdown-item-background-color);
-    cursor: pointer;
+      .ngx-devpav-dropdown-box_list-item_icon {
+        fill: var(--ngx-devpav-dropdown-item-icon-color);
+      }
 
-    .ngx-devpav-dropdown-box_list-item_icon {
-      fill: var(--ngx-devpav-dropdown-item-icon-color);
+      .ngx-devpav-dropdown-box_list-item-not-found {
+        background: var(--ngx-devpav-dropdown-background-color);
+        color: var(--ngx-devpav-default-font-color);
+        display: flex;
+        flex-wrap: nowrap;
+        height: 50px;
+        justify-content: flex-start;
+        padding-left: 15px;
+        align-items: center;
+      }
+
+      &:hover {
+        background: var(--ngx-devpav-dropdown-item-background-color-hover);
+        color: var(--ngx-devpav-dropdown-item-font-color-hover);
+
+        .ngx-devpav-dropdown-box_list-item_icon {
+          fill: var(--ngx-devpav-dropdown-item-icon-color-hover);
+        }
+      }
     }
+
+    &::-webkit-scrollbar {
+      background: var(--ngx-devpav-dropdown-scrollbar-background-color);
+      width: 10px;
+      cursor: pointer;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      cursor: pointer;
+      background: var(--ngx-devpav-dropdown-scrollbar-thumb-background-color);
+    }
+
   }
 
-  .ngx-devpav-dropdown-box_list-item-not-found {
-    background: var(--ngx-devpav-dropdown-background-color);
-    color: var(--ngx-devpav-default-font-color);
-    display: flex;
-    flex-wrap: nowrap;
-    height: 50px;
-    justify-content: flex-start;
-    padding-left: 15px;
-    align-items: center;
-  }
 
-  .ngx-devpav-dropdown-box_list-item:hover {
-    background: var(--ngx-devpav-dropdown-item-background-color-hover);
-    color: var(--ngx-devpav-dropdown-item-font-color-hover);
-  }
 
-  .ngx-devpav-dropdown-box_list-item:hover .ngx-devpav-dropdown-box_list-item_icon {
-      fill: var(--ngx-devpav-dropdown-item-icon-color-hover);
-  }
 
 }

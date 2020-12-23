@@ -1,6 +1,6 @@
 export interface Theme {
-  name: string;
-  properties: ThemeStyle;
+  id: string;
+  style: ThemeStyle;
 }
 
 export interface ThemeStyle {
@@ -33,12 +33,12 @@ export interface ThemeStyle {
 }
 
 export const light: Theme = {
-  name: 'ngx-devpav-light',
+  id: 'ngx-devpav-light',
 
-  properties: {
+  style: {
     'ngx-devpav-default-color': '#fff',
 
-    'ngx-devpav-primary-color': '#fff',
+    'ngx-devpav-primary-color': '#020202',
     'ngx-devpav-warning-color': '#fff',
     'ngx-devpav-accent-color': '#fff',
 
@@ -50,7 +50,7 @@ export const light: Theme = {
     'ngx-devpav-dropdown-item-font-color': '#383838',
     'ngx-devpav-dropdown-item-background-color': '#ffffff',
     'ngx-devpav-dropdown-item-icon-color-hover': '#959595',
-    'ngx-devpav-dropdown-item-icon-color': '#959595',
+    'ngx-devpav-dropdown-item-icon-color': '#fafafa',
 
     'ngx-devpav-dropdown-background-color': '#fff',
 
@@ -65,9 +65,9 @@ export const light: Theme = {
 };
 
 export const dark: Theme = {
-  name: 'ngx-devpav-dark',
+  id: 'ngx-devpav-dark',
 
-  properties: {
+  style: {
     'ngx-devpav-default-color': '#252e3a',
 
     'ngx-devpav-primary-color': '#fff',

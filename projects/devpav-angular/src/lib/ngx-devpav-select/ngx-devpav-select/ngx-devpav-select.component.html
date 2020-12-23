@@ -1,25 +1,23 @@
 <div class="ngx-devpav-select">
-  <div class="ngx-devpav-select_panel" (click)="setDropdownState()">
-    <span *ngIf="selectedItems?.length > 0 && !config.isMultiple">
-      {{getSingleValue()}}
-    </span>
-    <span *ngIf="!selectedItems || selectedItems?.length === 0">
-      {{config?.textUnselectItems}}
-    </span>
-    <div *ngIf="config.isMultiple" class="ngx-devpav-select_panel-multiple">
+  <div class="ngx-devpav-select__panel" (click)="setDropdownState()">
+    <span *ngIf="isSingle()">{{ getSingleValue() }}</span>
+    <span *ngIf="isNotSelected()">{{config?.textUnselectItems}}</span>
+    <div *ngIf="config?.isMultiple" class="ngx-devpav-select__panel-multiple">
       <ngx-devpav-chip *ngFor="let it of selectedItems"
                        [value]="it[config?.labelField]"
-                       (eventClickIcon)="deleteSelectedItem(it)"
-      ></ngx-devpav-chip>
+                       (eventClickIcon)="deleteSelectedItem(it)">
+      </ngx-devpav-chip>
     </div>
-    <ngx-devpav-icon class="ngx-devpav-select_panel_icon" [name]="this.statusDropdown ? 'arrow-up' : 'arrow-down'"
-                     width="25" height="25"></ngx-devpav-icon>
+    <ngx-devpav-icon class="ngx-devpav-select__panel_icon"
+                     [name]="this.statusDropdown ? 'arrow-up' : 'arrow-down'"
+                     width="25" height="25">
+    </ngx-devpav-icon>
   </div>
   <div class="ngx-devpav-select_dropdown" [@triggerDropdown]="stateDropdown">
     <ngx-devpav-dropdown-box #dropdown
-      (changes)="changesSelectedItems($event)"
-      [items]="items"
-      [configDropdown]="config">
+                             (changes)="changesSelectedItems($event)"
+                             [items]="items"
+                             [configDropdown]="config">
     </ngx-devpav-dropdown-box>
   </div>
 </div>
