@@ -1,9 +1,11 @@
 import {chipDark, chipLight} from './ngx-devpav-chip/ngx-devpav-chip/_theme-chip';
 import {iconDark, iconLight} from './ngx-devpav-icon/ngx-devpav-icon/_theme-icon';
+import {defaultInputLight} from './ngx-devpav-form-input/ngx-devpav-form-input/_theme-input';
 
 export interface Theme {
   id: string;
   html: NgxStyleElement;
+  input: NgxStyleElement;
   panel: NgxStyleElement;
   chips: NgxStyleElement[];
   icons: NgxStyleElement[];
@@ -26,7 +28,6 @@ export interface NgxButtonStyle extends NgxStyleElement {
 }
 
 export type ButtonType = 'DEFAULT' | 'WARNING' | 'PRIMARY' | 'ACCENT';
-
 
 // LIGHT BUTTON
 export const defaultButton: NgxButtonStyle = {
@@ -96,6 +97,7 @@ export const light: Theme = {
   id: 'ngx-devpav-light',
   html: htmlLight,
   panel: panelLight,
+  input: defaultInputLight,
   chips: [
     chipLight
   ],
@@ -146,6 +148,7 @@ export const dark: Theme = {
   id: 'ngx-devpav-dark',
   panel: panelDark,
   html: htmlDark,
+  input: defaultInputLight,
   icons: [
     iconDark
   ],

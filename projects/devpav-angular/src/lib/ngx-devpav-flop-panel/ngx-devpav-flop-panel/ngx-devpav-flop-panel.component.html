@@ -4,14 +4,14 @@
       <ngx-devpav-padding left="20">
         <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: center;">
           <ngx-devpav-icon [height]="18" [name]="isUnFlopped() ? 'arrow-down' : 'arrow-up'" style="margin-right: 15px"></ngx-devpav-icon>
-          <h4>{{title}}</h4>
+          <h4 style="font-weight: 400; line-height: 20px">{{title}}</h4>
         </div>
       </ngx-devpav-padding>
     </div>
   </ngx-devpav-panel-header>
   <ngx-devpav-panel-content>
-    <div [@triggerDropdown]="flopState" style="width: 100%; overflow: hidden">
-      <ng-content select=""></ng-content>
+    <div class="ngx-devpav-flop-panel__content" [@triggerDropdown]="flopState">
+      <ng-content></ng-content>
     </div>
   </ngx-devpav-panel-content>
 </ngx-devpav-panel-section>

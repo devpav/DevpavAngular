@@ -8,7 +8,16 @@ import {dark, light} from 'projects/devpav-angular/src/lib/theme.config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'devpav';
+  title: string;
+  debounce = 1000;
+
+  inputParagraph = {
+    name: 'Inputs',
+    description: '' +
+      '<ngx-devpav-form-input ph="Text" (inputValue)="valueInput($event)" [debounce]="1000"></ngx-devpav-form-input>' +
+      '<ngx-devpav-form-input ph="Number" type="number" [debounce]="debounce"></ngx-devpav-form-input>' +
+      '<ngx-devpav-form-input ph="Datetime" type="date" [debounce]="debounce"></ngx-devpav-form-input>'
+  };
 
   avatarParagraph = {
     name: 'Image Avatar',
@@ -77,4 +86,11 @@ export class AppComponent {
     this.themeService.applyTheme(dark);
   }
 
+  valueInput($event: string) {
+    this.title = $event;
+  }
+
+  valueDebounce($event: string) {
+    this.debounce = +$event;
+  }
 }

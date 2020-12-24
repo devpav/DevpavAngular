@@ -11,5 +11,5 @@ export const dropdownAnimation = trigger('triggerDropdown', [
     opacity: 1,
     height: '*'
   })),
-  transition('close <=> open', animate('0.2s ease-in-out'))
+  transition('close <=> open', animate('0.5s ease-out'))
 ]);

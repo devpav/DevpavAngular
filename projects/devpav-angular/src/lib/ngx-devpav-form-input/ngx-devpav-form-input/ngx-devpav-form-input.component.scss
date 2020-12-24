@@ -2,10 +2,12 @@ input.ngx-devpav-input {
   height: 40px;
   font-size: 14px;
   padding-left: 15px;
+  padding-right: 15px;
   box-sizing: border-box;
   width: 100%;
+  border-radius: 5px;
   outline: none !important;
-  color: var(--ngx-devpav-primary-color);
+  color: var(--ngx-devpav-input-color);
   background: var(--ngx-devpav-default-color);
   border: var(--ngx-devpav-form-input-border);
 }

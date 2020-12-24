@@ -1,4 +1,11 @@
-::ng-deep ngx-devpav-panel-section {
+::ng-deep ngx-devpav-panel {
+  min-height: 80px;
+  overflow: hidden;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+::ng-deep ngx-devpav-panel-content {
+  width: 100%;
   min-height: 80px;
   overflow: hidden;
 }
@@ -15,8 +22,11 @@
     align-items: center;
 
     &:hover {
-      box-shadow: none;
+      background: rgb(252, 252, 252);
     }
   }
 
+  &__content {
+    width: 100%;
+  }
 }

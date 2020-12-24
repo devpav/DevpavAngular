@@ -11,7 +11,7 @@ import {dropdownAnimation} from '../../ngx-devpav-animations/dropdown-animation'
 })
 export class NgxDevpavFlopPanelComponent implements OnInit {
 
-  flopState = 'close';
+  flopState = 'open';
 
   @Input()
   public title: string;

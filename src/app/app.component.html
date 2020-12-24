@@ -1,14 +1,45 @@
 <ngx-devpav-container ngxXs="0" ngxSm="10" ngxMd="100" ngxLg="200">
   <ngx-devpav-margin top="20" bottom="100">
 
-    <ngx-devpav-margin bottom="20">
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="inputParagraph.name" [ngxOpened]="true">
+        efijeqifeiuqhfiehqfeqw
+        fiuqwhfuiewhqfew
+        fweqfheiuwqhfewq
+        feqwufhew
+      </ngx-devpav-flop-panel>
+    </ngx-devpav-margin>
+
+    <ngx-devpav-padding top="20">
+      <ngx-devpav-flop-panel [title]="inputParagraph.name" [ngxOpened]="true">
+
+        <devpav-paragraph>
+          <devpav-lib-description [description]="inputParagraph.description"></devpav-lib-description>
+          <ngx-devpav-padding left="20" right="20" bottom="20" top="20">
+            <ngx-devpav-form-input ph="Text" (inputValue)="valueInput($event)"
+                                   [debounce]="debounce"></ngx-devpav-form-input>
+            <ngx-devpav-padding top="20" left="10">
+              {{title}}
+            </ngx-devpav-padding>
+            <ngx-devpav-padding top="20">
+              <ngx-devpav-form-input ph="Number" type="number" [debounce]="debounce"></ngx-devpav-form-input>
+            </ngx-devpav-padding>
+            <ngx-devpav-padding top="20">
+              <ngx-devpav-form-input ph="Datetime" type="date" [debounce]="debounce"></ngx-devpav-form-input>
+            </ngx-devpav-padding>
+          </ngx-devpav-padding>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
+    </ngx-devpav-padding>
+
+    <ngx-devpav-padding top="20">
       <devpav-button-panel>
         <ngx-devpav-button ngxColor="DEFAULT" title="LIGHT" (mouseEvent)="setLight()"></ngx-devpav-button>
         <ngx-devpav-button ngxColor="DEFAULT" title="DARK" (mouseEvent)="setDark()"></ngx-devpav-button>
       </devpav-button-panel>
-    </ngx-devpav-margin>
+    </ngx-devpav-padding>
 
-    <ngx-devpav-margin bottom="20">
+    <ngx-devpav-margin top="20">
       <ngx-devpav-flop-panel [title]="avatarParagraph.name">
         <ngx-devpav-margin bottom="30">
           <devpav-paragraph>
@@ -35,85 +66,99 @@
       </ngx-devpav-flop-panel>
     </ngx-devpav-margin>
 
-    <devpav-paragraph [title]="emptyPanelParagraph.name">
-      <devpav-lib-description [description]="emptyPanelParagraph.description">
-      </devpav-lib-description>
-      <ngx-devpav-padding bottom="20" left="20" right="20" top="20" style="width: 100%">
-        <ngx-devpav-panel>
-          <div style="width: 100%; height: 100px;"></div>
-        </ngx-devpav-panel>
-      </ngx-devpav-padding>
-    </devpav-paragraph>
-
-    <ngx-devpav-margin top="30">
-      <devpav-paragraph [title]="panelSectionParagraph.name">
-        <devpav-lib-description [description]="panelSectionParagraph.description">
-        </devpav-lib-description>
-        <ngx-devpav-margin top="20" bottom="20" left="20" right="20">
-          <ngx-devpav-panel-section>
-            <ngx-devpav-panel-header>
-              <div
-                style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; width: 100%; height: 100px;">
-                Header
-              </div>
-            </ngx-devpav-panel-header>
-            <ngx-devpav-panel-content>
-              <div
-                style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; width: 100%; height: 100px;">
-                Content
-              </div>
-            </ngx-devpav-panel-content>
-            <ngx-devpav-panel-footer>
-              <div
-                style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; width: 100%; height: 100px;">
-                Footer
-              </div>
-            </ngx-devpav-panel-footer>
-          </ngx-devpav-panel-section>
-        </ngx-devpav-margin>
-      </devpav-paragraph>
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="emptyPanelParagraph.name">
+        <devpav-paragraph>
+          <devpav-lib-description [description]="emptyPanelParagraph.description">
+          </devpav-lib-description>
+          <ngx-devpav-padding bottom="20" left="20" right="20" top="20" style="width: 100%">
+            <ngx-devpav-panel>
+              <div style="width: 100%; height: 100px;"></div>
+            </ngx-devpav-panel>
+          </ngx-devpav-padding>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
     </ngx-devpav-margin>
 
-    <ngx-devpav-margin top="30">
-      <devpav-paragraph [title]="buttonParagraph.name">
-        <devpav-lib-description [description]="buttonParagraph.description">
-        </devpav-lib-description>
-        <ngx-devpav-margin left="20" right="20" bottom="20">
-          <flex-line>
-            <ngx-devpav-button ngxColor="DEFAULT" title="Default button"></ngx-devpav-button>
-            <ngx-devpav-button ngxColor="WARNING" title="Warning button"></ngx-devpav-button>
-            <ngx-devpav-button ngxColor="PRIMARY" title="Primary button"></ngx-devpav-button>
-            <ngx-devpav-button ngxColor="ACCENT" title="Accent button"></ngx-devpav-button>
-          </flex-line>
-        </ngx-devpav-margin>
-      </devpav-paragraph>
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="panelSectionParagraph.name">
+        <devpav-paragraph>
+          <devpav-lib-description [description]="panelSectionParagraph.description">
+          </devpav-lib-description>
+          <ngx-devpav-margin top="20" bottom="20" left="20" right="20">
+            <ngx-devpav-panel-section>
+              <ngx-devpav-panel-header>
+                <div
+                  style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; width: 100%; height: 100px;">
+                  Header
+                </div>
+              </ngx-devpav-panel-header>
+              <ngx-devpav-panel-content>
+                <div
+                  style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; width: 100%; height: 100px;">
+                  Content
+                </div>
+              </ngx-devpav-panel-content>
+              <ngx-devpav-panel-footer>
+                <div
+                  style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; width: 100%; height: 100px;">
+                  Footer
+                </div>
+              </ngx-devpav-panel-footer>
+            </ngx-devpav-panel-section>
+          </ngx-devpav-margin>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
     </ngx-devpav-margin>
 
-    <ngx-devpav-margin top="30">
-      <devpav-paragraph [title]="defaultChipsParagraph.name">
-        <devpav-lib-description [description]="defaultChipsParagraph.description"></devpav-lib-description>
-        <ngx-devpav-margin left="20" right="20" bottom="20">
-          <ngx-devpav-chip value="Default chip"></ngx-devpav-chip>
-        </ngx-devpav-margin>
-      </devpav-paragraph>
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="buttonParagraph.name">
+        <devpav-paragraph>
+          <devpav-lib-description [description]="buttonParagraph.description">
+          </devpav-lib-description>
+          <ngx-devpav-margin left="20" right="20" bottom="20">
+            <flex-line>
+              <ngx-devpav-button ngxColor="DEFAULT" title="Default button"></ngx-devpav-button>
+              <ngx-devpav-button ngxColor="WARNING" title="Warning button"></ngx-devpav-button>
+              <ngx-devpav-button ngxColor="PRIMARY" title="Primary button"></ngx-devpav-button>
+              <ngx-devpav-button ngxColor="ACCENT" title="Accent button"></ngx-devpav-button>
+            </flex-line>
+          </ngx-devpav-margin>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
     </ngx-devpav-margin>
 
-    <ngx-devpav-margin top="30">
-      <devpav-paragraph [title]="closeableChipsParagraph.name">
-        <devpav-lib-description [description]="closeableChipsParagraph.description"></devpav-lib-description>
-        <ngx-devpav-margin left="20" right="20" bottom="20">
-          <ngx-devpav-chip value="Default chip" closeable="true"></ngx-devpav-chip>
-        </ngx-devpav-margin>
-      </devpav-paragraph>
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="defaultChipsParagraph.name">
+        <devpav-paragraph>
+          <devpav-lib-description [description]="defaultChipsParagraph.description"></devpav-lib-description>
+          <ngx-devpav-margin left="20" right="20" bottom="20">
+            <ngx-devpav-chip value="Default chip"></ngx-devpav-chip>
+          </ngx-devpav-margin>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
     </ngx-devpav-margin>
 
-    <ngx-devpav-margin top="30">
-      <devpav-paragraph [title]="iconParagraph.name">
-        <devpav-lib-description [description]="iconParagraph.description"></devpav-lib-description>
-        <ngx-devpav-margin left="20" right="20" bottom="20">
-          <ngx-devpav-icon name="idea"></ngx-devpav-icon>
-        </ngx-devpav-margin>
-      </devpav-paragraph>
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="closeableChipsParagraph.name">
+        <devpav-paragraph>
+          <devpav-lib-description [description]="closeableChipsParagraph.description"></devpav-lib-description>
+          <ngx-devpav-margin left="20" right="20" bottom="20">
+            <ngx-devpav-chip value="Default chip" closeable="true"></ngx-devpav-chip>
+          </ngx-devpav-margin>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
+    </ngx-devpav-margin>
+
+    <ngx-devpav-margin top="20">
+      <ngx-devpav-flop-panel [title]="iconParagraph.name">
+        <devpav-paragraph>
+          <devpav-lib-description [description]="iconParagraph.description"></devpav-lib-description>
+          <ngx-devpav-margin left="20" right="20" bottom="20">
+            <ngx-devpav-icon name="idea"></ngx-devpav-icon>
+          </ngx-devpav-margin>
+        </devpav-paragraph>
+      </ngx-devpav-flop-panel>
     </ngx-devpav-margin>
 
   </ngx-devpav-margin>
