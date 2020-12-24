@@ -32,7 +32,7 @@ export class NgxDevpavChipComponent implements OnInit {
   icon = 'remove';
 
   @Input()
-  hiddenIcon = false;
+  closeable = false;
 
   @Output()
   eventClickIcon = new EventEmitter<any>();
@@ -48,7 +48,7 @@ export class NgxDevpavChipComponent implements OnInit {
   constructor() { }
 
   mouseover($event: MouseEvent) {
-    if (!this.hiddenIcon) {
+    if (this.closeable) {
       this.stateVisible = 'active';
     }
   }

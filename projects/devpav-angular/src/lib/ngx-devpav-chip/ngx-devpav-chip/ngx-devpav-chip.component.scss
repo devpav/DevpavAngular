@@ -1,18 +1,31 @@
-.devpav-chip {
+@mixin chip-color-theme($ngx-devpav-chip-border, $ngx-devpav-chip-font-color, $ngx-devpav-chip-background) {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  padding: 0 5px;
+  padding: 0 10px;
   cursor: pointer;
   height: 30px;
+  font-size: 14px;
   width: fit-content;
-  border: var(--ngx-devpav-form-input-border);
-  color: black;
+  border: $ngx-devpav-chip-border;
+  color: $ngx-devpav-chip-font-color;
   border-radius: 3px;
-  background: white;
+  background: $ngx-devpav-chip-background;
+
+  &__value {
+    padding: 0 10px;
+  }
+
+  ngx-devpav-icon {
+    margin-left: 3px;
+  }
 }
 
-.devpav-chip ngx-devpav-icon {
-  margin-left: 3px;
+.default-chip {
+  @include chip-color-theme(
+      var(--default-ngx-devpav-chip-border),
+      var(--default-ngx-devpav-chip-font-color),
+      var(--default-ngx-devpav-chip-background)
+  )
 }

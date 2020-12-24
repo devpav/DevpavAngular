@@ -1,0 +1,27 @@
+.ngx-devpav-container {
+  margin: 0;
+}
+
+@media screen and (min-width: 450px) {
+  .ngx-devpav-container {
+    margin: auto var(--ngx-container-sm);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .ngx-devpav-container {
+    margin: auto var(--ngx-container-sm);
+  }
+}
+
+@media screen and (min-width: 970px) {
+  .ngx-devpav-container {
+    margin: auto var(--ngx-container-md);
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .ngx-devpav-container {
+    margin: auto var(--ngx-container-lg);
+  }
+}

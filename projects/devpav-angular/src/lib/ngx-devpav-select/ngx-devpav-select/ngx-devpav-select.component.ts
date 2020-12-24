@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgxDevpavDropdownBoxComponent, NgxDevpavDropdownBoxConfig} from '../ngx-devpav-dropdown-box/ngx-devpav-dropdown-box.component';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {dropdownAnimation} from '../../ngx-devpav-animations/dropdown-animation';
 
 
 export interface NgxDevpavSelectConfig extends NgxDevpavDropdownBoxConfig {
@@ -12,19 +12,7 @@ export interface NgxDevpavSelectConfig extends NgxDevpavDropdownBoxConfig {
   templateUrl: './ngx-devpav-select.component.html',
   styleUrls: ['./ngx-devpav-select.component.scss'],
   animations: [
-    trigger('triggerDropdown', [
-      state('close', style({
-        overflow: 'hidden',
-        opacity: 0.5,
-        height: '0px'
-      })),
-      state('open', style({
-        overflow: 'inherit',
-        opacity: 1,
-        height: '*'
-      })),
-      transition('close <=> open', animate('0.2s ease-in-out'))
-    ])
+    dropdownAnimation
   ]
 })
 export class NgxDevpavSelectComponent implements OnInit {

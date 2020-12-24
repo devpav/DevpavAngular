@@ -1,98 +1,158 @@
+import {chipDark, chipLight} from './ngx-devpav-chip/ngx-devpav-chip/_theme-chip';
+import {iconDark, iconLight} from './ngx-devpav-icon/ngx-devpav-icon/_theme-icon';
+
 export interface Theme {
   id: string;
-  style: ThemeStyle;
+  html: NgxStyleElement;
+  panel: NgxStyleElement;
+  chips: NgxStyleElement[];
+  icons: NgxStyleElement[];
+  buttons: NgxButtonStyle[];
 }
 
-export interface ThemeStyle {
-  'ngx-devpav-default-color': string;
-
-  'ngx-devpav-primary-color': string;
-  'ngx-devpav-warning-color': string;
-  'ngx-devpav-accent-color': string;
-
-  'ngx-devpav-background': string;
-  'ngx-devpav-default-font-color': string;
-
-  'ngx-devpav-form-input-border': string;
-
-  'ngx-devpav-dropdown-item-font-color': string;
-  'ngx-devpav-dropdown-item-background-color': string;
-  'ngx-devpav-dropdown-item-icon-color-hover': string;
-  'ngx-devpav-dropdown-item-icon-color': string;
-
-  'ngx-devpav-dropdown-background-color': string;
-
-  'ngx-devpav-dropdown-item-font-color-hover': string;
-  'ngx-devpav-dropdown-item-background-color-hover': string;
-
-  'ngx-devpav-dropdown-scrollbar-thumb-background-color': string;
-  'ngx-devpav-dropdown-scrollbar-background-color': string;
-
-  'ngx-devpav-select-panel-arrow-color': string;
-
+export interface NgxStyleProperties {
+  [key: string]: string;
 }
 
-export const light: Theme = {
-  id: 'ngx-devpav-light',
+export interface NgxStyleElement {
+  id: string;
+  styles: NgxStyleProperties;
+}
 
-  style: {
-    'ngx-devpav-default-color': '#fff',
+// BUTTONS
+export interface NgxButtonStyle extends NgxStyleElement {
+  id: ButtonType;
+  styles: NgxStyleProperties;
+}
 
-    'ngx-devpav-primary-color': '#020202',
-    'ngx-devpav-warning-color': '#fff',
-    'ngx-devpav-accent-color': '#fff',
+export type ButtonType = 'DEFAULT' | 'WARNING' | 'PRIMARY' | 'ACCENT';
 
-    'ngx-devpav-background': '#fff',
-    'ngx-devpav-default-font-color': '#000',
 
-    'ngx-devpav-form-input-border': '1px solid #e8e8e8',
+// LIGHT BUTTON
+export const defaultButton: NgxButtonStyle = {
+  id: 'DEFAULT',
+  styles: {
+    'default-ngx-devpav-button-color': 'rgb(0,0,0)',
+    'default-ngx-devpav-button-background': '#ffffff',
+    'default-ngx-devpav-button-color-hover': 'rgba(0,0,0,0.91)',
+    'default-ngx-devpav-button-background-hover': '#fcfbfb',
+    'default-ngx-devpav-button-border-color': 'rgba(9,9,9,0.09)'
+  }
+} as NgxButtonStyle;
 
-    'ngx-devpav-dropdown-item-font-color': '#383838',
-    'ngx-devpav-dropdown-item-background-color': '#ffffff',
-    'ngx-devpav-dropdown-item-icon-color-hover': '#959595',
-    'ngx-devpav-dropdown-item-icon-color': '#fafafa',
+export const warningButton: NgxButtonStyle = {
+  id: 'WARNING',
+  styles: {
+    'warning-ngx-devpav-button-color': 'rgb(255,255,255)',
+    'warning-ngx-devpav-button-background': '#de5959',
+    'warning-ngx-devpav-button-color-hover': '#ffffff',
+    'warning-ngx-devpav-button-background-hover': '#b15252',
+    'warning-ngx-devpav-button-border-color': 'rgba(236,236,236,0.09)'
+  }
+} as NgxButtonStyle;
 
-    'ngx-devpav-dropdown-background-color': '#fff',
+export const primaryButton: NgxButtonStyle = {
+  id: 'PRIMARY',
+  styles: {
+    'primary-ngx-devpav-button-color': 'rgb(255,255,255)',
+    'primary-ngx-devpav-button-background': '#5282ff',
+    'primary-ngx-devpav-button-color-hover': '#ffffff',
+    'primary-ngx-devpav-button-background-hover': '#525bff',
+    'primary-ngx-devpav-button-border-color': 'rgba(236,236,236,0.12)'
+  }
+} as NgxButtonStyle;
 
-    'ngx-devpav-dropdown-item-font-color-hover': '#000000',
-    'ngx-devpav-dropdown-item-background-color-hover': '#f9f9f9',
+export const accentButton: NgxButtonStyle = {
+  id: 'ACCENT',
+  styles: {
+    'accent-ngx-devpav-button-color': 'rgb(255,255,255)',
+    'accent-ngx-devpav-button-background': '#d5a139',
+    'accent-ngx-devpav-button-color-hover': '#ffffff',
+    'accent-ngx-devpav-button-background-hover': '#bb8910',
+    'accent-ngx-devpav-button-border-color': 'rgba(236,236,236,0.09)'
+  }
+} as NgxButtonStyle;
 
-    'ngx-devpav-dropdown-scrollbar-thumb-background-color': '#b4b4b4',
-    'ngx-devpav-dropdown-scrollbar-background-color': '#f4f4f4',
-
-    'ngx-devpav-select-panel-arrow-color': '#000000'
+export const htmlLight: NgxStyleElement = {
+  id: 'html',
+  styles: {
+    'ngx-devpav-body-background': '#ffffff',
+    'ngx-devpav-font-color': '#000000',
   }
 };
 
+export const panelLight: NgxStyleElement = {
+  id: 'html',
+  styles: {
+    'ngx-devpav-panel-background': '#ffffff',
+    'ngx-devpav-panel-shadow': '0 4px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04)',
+    'ngx-devpav-panel-border': 'none'
+  }
+};
+
+
+
+export const light: Theme = {
+  id: 'ngx-devpav-light',
+  html: htmlLight,
+  panel: panelLight,
+  chips: [
+    chipLight
+  ],
+  icons: [
+    iconLight
+  ],
+  buttons: [
+    defaultButton,
+    warningButton,
+    primaryButton,
+    accentButton
+  ]
+};
+
+
+export const htmlDark: NgxStyleElement = {
+  id: 'html',
+  styles: {
+    'ngx-devpav-body-background': '#1a1a2e',
+    'ngx-devpav-font-color': 'rgba(255,255,255,0.85)',
+  }
+};
+
+export const defaultButtonDark: NgxButtonStyle = {
+  id: 'DEFAULT',
+  styles: {
+    'default-ngx-devpav-button-color': 'rgba(205,203,203,0.67)',
+    'default-ngx-devpav-button-background': '#242442',
+    'default-ngx-devpav-button-color-hover': 'rgba(146,65,65,0.91)',
+    'default-ngx-devpav-button-background-hover': '#3e3737',
+    'default-ngx-devpav-button-border-color': 'rgba(189,189,189,0.09)'
+  }
+} as NgxButtonStyle;
+
+
+export const panelDark: NgxStyleElement = {
+  id: 'panel',
+  styles: {
+    'ngx-devpav-panel-background': '#16213e',
+    'ngx-devpav-panel-shadow': '0 4px 24px #00000024, 0 2px 8px #00000024',
+    'ngx-devpav-panel-border': 'none'
+  }
+};
+
+
+
 export const dark: Theme = {
   id: 'ngx-devpav-dark',
-
-  style: {
-    'ngx-devpav-default-color': '#252e3a',
-
-    'ngx-devpav-primary-color': '#fff',
-    'ngx-devpav-warning-color': '#fff',
-    'ngx-devpav-accent-color': '#fff',
-
-    'ngx-devpav-background': '#1f2935',
-    'ngx-devpav-default-font-color': '#ffffff'
-    ,
-    'ngx-devpav-form-input-border': 'none',
-
-    'ngx-devpav-dropdown-item-font-color': '#b3b3b3',
-    'ngx-devpav-dropdown-item-background-color': '#252e3a',
-
-    'ngx-devpav-dropdown-item-icon-color': '#1c975b',
-    'ngx-devpav-dropdown-item-icon-color-hover': '#24ac4f',
-
-    'ngx-devpav-dropdown-background-color': '#252e3a',
-
-    'ngx-devpav-dropdown-item-font-color-hover': '#fff',
-    'ngx-devpav-dropdown-item-background-color-hover': '#1f2935',
-
-    'ngx-devpav-dropdown-scrollbar-background-color': '#252e3a',
-    'ngx-devpav-dropdown-scrollbar-thumb-background-color': '#b4b4b4',
-
-    'ngx-devpav-select-panel-arrow-color': '#ffffff'
-  }
+  panel: panelDark,
+  html: htmlDark,
+  icons: [
+    iconDark
+  ],
+  chips: [
+    chipDark
+  ],
+  buttons: [
+    defaultButtonDark
+  ]
 };

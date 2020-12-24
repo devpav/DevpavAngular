@@ -45,4 +45,5 @@ export class NgxDevpavIconService {
     }
     return svg;
   }
+
 }

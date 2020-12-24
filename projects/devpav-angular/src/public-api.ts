@@ -6,9 +6,10 @@
 export * from './lib/ngx-devpav-select/ngx-devpav-select.module';
 export * from './lib/ngx-devpav-theme/ngx-devpav-theme.module';
 export * from './lib/ngx-devpav-form-input/ngx-devpav-form-input.module';
+export * from './lib/ngx-devpav-button/ngx-devpav-button.module';
 
 // services
 export * from './lib/ngx-devpav-theme/ngx-devpav-theme.service';
 
 // interfaces
-export { Theme } from './lib/theme.config';
+export { Theme, light } from './lib/theme.config';

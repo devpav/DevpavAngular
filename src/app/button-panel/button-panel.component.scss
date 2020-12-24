@@ -1,0 +1,10 @@
+.button-panel {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  ::ng-deep ngx-devpav-button {
+    margin-right: 10px;
+  }
+
+}

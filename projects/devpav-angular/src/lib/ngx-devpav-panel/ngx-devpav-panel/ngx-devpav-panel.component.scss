@@ -1,0 +1,9 @@
+.ngx-devpav-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--ngx-devpav-panel-background);
+  width: 100%;
+  box-shadow: var(--ngx-devpav-panel-shadow);
+  border: var(--ngx-devpav-panel-border);
+}

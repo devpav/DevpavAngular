@@ -1,0 +1,68 @@
+@mixin btn-color-theme(
+  $ngx-devpav-button-background,
+  $ngx-devpav-button-border-color,
+  $ngx-devpav-button-color,
+  $ngx-devpav-button-background-hover,
+  $ngx-devpav-button-color-hover
+) {
+  background-color: $ngx-devpav-button-background;
+  border: 1px solid $ngx-devpav-button-border-color;
+  color: $ngx-devpav-button-color;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 3px;
+
+  transform: scale(1);
+
+  &:hover {
+    background: $ngx-devpav-button-background-hover;
+    color: $ngx-devpav-button-color-hover;
+    transition: transform .1s ease-out,color .15s linear;
+  }
+}
+
+.default-btn {
+  @include btn-color-theme(
+      var(--default-ngx-devpav-button-background),
+      var(--default-ngx-devpav-button-border-color),
+      var(--default-ngx-devpav-button-color),
+      var(--default-ngx-devpav-button-background-hover),
+      var(--default-ngx-devpav-button-color-hover)
+  )
+}
+
+.primary-btn {
+  @include btn-color-theme(
+        var(--primary-ngx-devpav-button-background),
+        var(--primary-ngx-devpav-button-border-color),
+        var(--primary-ngx-devpav-button-color),
+        var(--primary-ngx-devpav-button-background-hover),
+        var(--primary-ngx-devpav-button-color-hover)
+  )
+}
+
+.warning-btn {
+  @include btn-color-theme(
+      var(--warning-ngx-devpav-button-background),
+      var(--warning-ngx-devpav-button-border-color),
+      var(--warning-ngx-devpav-button-color),
+      var(--warning-ngx-devpav-button-background-hover),
+      var(--warning-ngx-devpav-button-color-hover)
+  )
+}
+
+.accent-btn {
+  @include btn-color-theme(
+      var(--accent-ngx-devpav-button-background),
+      var(--accent-ngx-devpav-button-border-color),
+      var(--accent-ngx-devpav-button-color),
+      var(--accent-ngx-devpav-button-background-hover),
+      var(--accent-ngx-devpav-button-color-hover)
+  )
+}
+

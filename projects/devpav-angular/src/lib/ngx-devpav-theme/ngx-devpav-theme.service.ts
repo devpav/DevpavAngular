@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {dark, light, Theme} from '../theme.config';
+import {dark, light, NgxStyleElement, Theme} from '../theme.config';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,13 @@ export class NgxDevpavThemeService {
     this.map.set(dark.id, dark);
   }
 
+  private functionSetPropertyCSS = (styleElement: NgxStyleElement) => {
+    Object.keys(styleElement.styles).forEach(key => {
+      document.documentElement.style.setProperty(`--${key}`, styleElement.styles[key]);
+    });
+  }
 
-  registerTheme(theme: Theme) {
+  register(theme: Theme) {
     if (!theme) {
       throw Error('Theme must be not undefined or null');
     }
@@ -27,7 +32,7 @@ export class NgxDevpavThemeService {
     return this;
   }
 
-  unregisterTheme(nameTheme: string) {
+  unregister(nameTheme: string) {
     if (nameTheme === light.id) {
       return;
     }
@@ -38,26 +43,33 @@ export class NgxDevpavThemeService {
     this.map.delete(nameTheme);
   }
 
-  getListTheme(): Theme[] {
+  getList(): Theme[] {
     const themes: Theme[] = Array.from(this.map.values());
     return themes.map(theme => ({...theme}));
   }
 
-  getCloneTheme(nameTheme: string) {
-    return { ... this.map.get(nameTheme) };
-  }
+  applyTheme(theme: Theme) {
+    const themeRegister = this.map.get(theme.id);
 
-  setTheme(nameTheme: string) {
-    const theme = this.map.get(nameTheme);
-
-    if (!theme) {
-      return;
+    if (!themeRegister) {
+      throw new Error('Theme with id ' + theme.id + ' not found');
     }
 
-    const functionSetPropertyCSS = (k: string) => document.documentElement.style.setProperty(`--${k}`, theme.style[k]);
+    const ngxStyleElements: NgxStyleElement[] = [];
 
-    Object.keys(theme.style)
-      .forEach(functionSetPropertyCSS);
+    Object.keys(theme).filter(key => key !== 'id')
+      .map(key => theme[key])
+      .forEach(value => {
+        ngxStyleElements.push(value);
+      });
+
+    ngxStyleElements.forEach(element => {
+      if (Array.isArray(element)) {
+        element.forEach(it => this.functionSetPropertyCSS(it));
+      } else {
+        this.functionSetPropertyCSS(element);
+      }
+    });
   }
 
 }

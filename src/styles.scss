@@ -5,5 +5,8 @@
 }
 
 body {
-  background: var(--ngx-devpav-background);
+  margin: 0;
+  padding: 0;
+  background: var(--ngx-devpav-body-background);
+  color: var(--ngx-devpav-font-color);
 }
