@@ -12,7 +12,7 @@ export interface NgxDevpavSelectConfig extends NgxDevpavDropdownBoxConfig {
   templateUrl: './ngx-devpav-select.component.html',
   styleUrls: ['./ngx-devpav-select.component.scss'],
   animations: [
-    dropdownAnimation
+    dropdownAnimation(0.1)
   ]
 })
 export class NgxDevpavSelectComponent implements OnInit {

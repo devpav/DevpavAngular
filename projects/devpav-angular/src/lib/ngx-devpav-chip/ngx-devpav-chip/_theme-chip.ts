@@ -3,7 +3,7 @@ import {NgxStyleElement} from '../../theme.config';
 export const chipLight: NgxStyleElement = {
   id: 'chip-default',
   styles: {
-    'default-ngx-devpav-chip-border': '1px solid rgba(9,9,9,0.09)',
+    'default-ngx-devpav-chip-border': '1px solid rgba(0, 0, 0, 0.05)',
     'default-ngx-devpav-chip-font-color': '#000000',
     'default-ngx-devpav-chip-background': '#ffffff'
   }

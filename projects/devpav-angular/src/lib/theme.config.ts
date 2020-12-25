@@ -37,7 +37,7 @@ export const defaultButton: NgxButtonStyle = {
     'default-ngx-devpav-button-background': '#ffffff',
     'default-ngx-devpav-button-color-hover': 'rgba(0,0,0,0.91)',
     'default-ngx-devpav-button-background-hover': '#fcfbfb',
-    'default-ngx-devpav-button-border-color': 'rgba(9,9,9,0.09)'
+    'default-ngx-devpav-button-border-color': 'rgba(0, 0, 0, 0.05)'
   }
 } as NgxButtonStyle;
 

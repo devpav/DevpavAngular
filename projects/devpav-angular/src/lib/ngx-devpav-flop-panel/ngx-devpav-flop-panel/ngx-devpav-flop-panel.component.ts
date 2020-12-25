@@ -6,7 +6,7 @@ import {dropdownAnimation} from '../../ngx-devpav-animations/dropdown-animation'
   templateUrl: './ngx-devpav-flop-panel.component.html',
   styleUrls: ['./ngx-devpav-flop-panel.component.scss'],
   animations: [
-    dropdownAnimation
+    dropdownAnimation(0.3)
   ]
 })
 export class NgxDevpavFlopPanelComponent implements OnInit {

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NgxDevpavThemeService} from '../../projects/devpav-angular/src/lib/ngx-devpav-theme/ngx-devpav-theme.service';
 import {dark, light} from 'projects/devpav-angular/src/lib/theme.config';
+import {NgxDevpavIconService} from '../../projects/devpav-angular/src/lib/ngx-devpav-icon/ngx-devpav-icon.service';
 
 @Component({
   selector: 'devpav-root',
@@ -74,8 +75,15 @@ export class AppComponent {
     description: '<ngx-devpav-chip value="Default chip" closeable="true"></ngx-devpav-chip>'
   };
 
-  constructor(private themeService: NgxDevpavThemeService) {
+  constructor(private themeService: NgxDevpavThemeService, private ngxDevpavIconService: NgxDevpavIconService) {
     this.themeService.applyTheme(light);
+    this.ngxDevpavIconService.setIcon('calendar', '' +
+      '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">' +
+      '<path d="M0 0h24v24H0z" fill="none"/>' +
+      '<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 ' +
+      '2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>' +
+      '<path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>' +
+      '');
   }
 
   setLight() {

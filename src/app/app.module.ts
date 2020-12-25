@@ -21,6 +21,8 @@ import {SchedulePageComponent} from './pages/schedule-page/schedule-page.compone
 import {RouterModule} from '@angular/router';
 import {NgxDevpavScheduleModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-schedule/ngx-devpav-schedule.module';
 import {NgxDevpavCalendarModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-calendar/ngx-devpav-calendar.module';
+import {SelectorPageComponent} from './pages/selector-page/selector-page.component';
+import {NgxDevpavSelectorModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-selector/ngx-devpav-selector.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import {NgxDevpavCalendarModule} from '../../projects/devpav-angular/src/lib/ngx
     XmlPipePipe,
     LibDescriptionComponent,
     FlexLineComponent,
-    SchedulePageComponent
+    SchedulePageComponent,
+    SelectorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +44,12 @@ import {NgxDevpavCalendarModule} from '../../projects/devpav-angular/src/lib/ngx
         component: SchedulePageComponent
       },
       {
+        path: 'selectors',
+        component: SelectorPageComponent
+      },
+      {
         path: '**',
-        redirectTo: 'schedules'
+        redirectTo: 'selectors'
       }
     ]),
     AppRoutingModule,
@@ -57,7 +64,8 @@ import {NgxDevpavCalendarModule} from '../../projects/devpav-angular/src/lib/ngx
     NgxDevpavAvatarModule,
     NgxDevpavFlopPanelModule,
     NgxDevpavScheduleModule,
-    NgxDevpavCalendarModule
+    NgxDevpavCalendarModule,
+    NgxDevpavSelectorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
