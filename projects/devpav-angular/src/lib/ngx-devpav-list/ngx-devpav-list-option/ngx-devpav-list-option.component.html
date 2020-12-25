@@ -1,0 +1,6 @@
+<div class="ngx-devpav-list-option" (click)="ngxSelect.emit(ngxOption)">
+  <span>{{ngxOption?.name}}</span>
+  <div class="ngx-devpav-list-option__select-identifier" *ngIf="ngxSelected">
+    <ngx-devpav-icon name="done" width="14"></ngx-devpav-icon>
+  </div>
+</div>

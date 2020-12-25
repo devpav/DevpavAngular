@@ -1,0 +1,14 @@
+<div class="ngx-devpav-singleton-selector" (focusin)="valueBlur($event)">
+  <div class="ngx-devpav-singleton-selector__header" (click)="setDropdownState()">
+    <ngx-devpav-icon width="18" *ngIf="icon" class="ngx-devpav-singleton-selector__header-icon" [name]="icon"></ngx-devpav-icon>
+    <span class="ngx-devpav-singleton-selector__header-title">{{ngxSelected && ngxSelected.length !== 0 ? ngxSelected[0]?.name : 'Не выбрано'}}</span>
+    <ngx-devpav-icon width="18" class="ngx-devpav-singleton-selector__header-action-icon"
+                     [name]="isUnFlopped() ? 'arrow-down' : 'arrow-up'"></ngx-devpav-icon>
+  </div>
+  <div class="ngx-devpav-singleton-selector__flop" [@triggerDropdown]="flopState">
+    <div style="padding: 20px" *ngIf="ngxSearchLine">
+      <ngx-devpav-form-input type="text" ph="Поиск" debounce="200"></ngx-devpav-form-input>
+    </div>
+    <ngx-devpav-list [ngxSelectedListOptions]="ngxSelected" (ngxSelect)="selectOptions($event)" [ngxListOptions]="ngxListOptions"></ngx-devpav-list>
+  </div>
+</div>

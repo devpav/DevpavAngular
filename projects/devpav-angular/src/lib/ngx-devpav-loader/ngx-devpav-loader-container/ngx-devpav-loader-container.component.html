@@ -1,0 +1,7 @@
+<div style="width: 100%; height: inherit; position: inherit;" *ngIf="!ngObj">
+  <ngx-spinner bdColor="rgba(0,0,0, 0)" size="small" name="ngxLoaderContainer" [zIndex]="1000" color="#d3d3d3" type="line-scale-pulse-out-rapid" [fullScreen]="false"></ngx-spinner>
+</div>
+
+<ng-template [ngIf]="ngObj">
+  <ng-content></ng-content>
+</ng-template>

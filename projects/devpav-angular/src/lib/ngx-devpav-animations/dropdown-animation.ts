@@ -1,9 +1,9 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
-export const dropdownAnimation = (seconds: number) => trigger('triggerDropdown', [
+export const dropdownAnimation = (seconds: number, overflow: number = 0) => trigger('triggerDropdown', [
   state('close', style({
     overflow: 'hidden',
-    opacity: 0,
+    opacity: overflow,
     height: '0px'
   })),
   state('open', style({

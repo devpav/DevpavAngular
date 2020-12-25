@@ -1,0 +1,15 @@
+.ngx-devpav-list-option {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  font-size: 14px;
+
+  align-items: center;
+
+  &__select-identifier {
+    position: absolute;
+    right: 15px;
+  }
+}

@@ -1,0 +1,16 @@
+<ngx-devpav-container ngxMd="100" ngxLg="200">
+
+  <ngx-devpav-margin top="20" bottom="20">
+
+    <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: center;">
+      <ngx-devpav-button style="margin-right: 10px" (mouseEvent)="setObject()" title="Install Data"></ngx-devpav-button>
+      <div style="width: 300px; margin-right: 10px">
+        <ngx-devpav-singleton-selector icon="calendar" (ngxSelect)="selectedEvent($event)" [ngxListOptions]="listOptionSelector"></ngx-devpav-singleton-selector>
+      </div>
+      <div>
+        <ngx-devpav-chip *ngFor="let i of selected" [value]="i.name"></ngx-devpav-chip>
+      </div>
+    </div>
+
+  </ngx-devpav-margin>
+</ngx-devpav-container>
