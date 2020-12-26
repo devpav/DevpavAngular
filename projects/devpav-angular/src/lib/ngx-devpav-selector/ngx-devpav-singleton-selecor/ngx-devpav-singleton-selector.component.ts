@@ -13,6 +13,13 @@ import {ListOption} from '../../ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.
 })
 export class NgxDevpavSingletonSelectorComponent implements OnInit {
 
+  @Input()
+  public set ngxOpened(value: boolean) {
+    this.flopState = value ? 'open' : 'close';
+  }
+
+  constructor() { }
+
   flopState = 'open';
 
   @Input()
@@ -25,11 +32,6 @@ export class NgxDevpavSingletonSelectorComponent implements OnInit {
   public ngxSelected: ListOption[];
 
   @Input()
-  public set ngxOpened(value: boolean) {
-    this.flopState = value ? 'open' : 'close';
-  }
-
-  @Input()
   public icon: string;
 
   @Input()
@@ -38,8 +40,6 @@ export class NgxDevpavSingletonSelectorComponent implements OnInit {
   @Output()
   public ngxSelect: EventEmitter<ListOption[]> = new EventEmitter<ListOption[]>();
 
-
-  constructor() { }
 
   ngOnInit() {
     console.log(this.ngxListOptions);

@@ -22,14 +22,9 @@ export class NgxDevpavButtonComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // this.buttonStyleService.applyStyle(this.ngxColor);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.ngxColor) {
-      const currentValue = changes.ngxColor.currentValue as ButtonType;
-
-    }
   }
 
 }

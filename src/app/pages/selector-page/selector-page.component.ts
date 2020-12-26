@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ListOption} from '../../../../projects/devpav-angular/src/lib/ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.component';
 
 @Component({
@@ -6,7 +6,14 @@ import {ListOption} from '../../../../projects/devpav-angular/src/lib/ngx-devpav
   templateUrl: './selector-page.component.html',
   styleUrls: ['./selector-page.component.scss']
 })
-export class SelectorPageComponent implements OnInit {
+export class SelectorPageComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('scheduleCanvas', {static: true})
+  canvas: ElementRef;
+
+  @ViewChild('container', {static: true})
+  container: ElementRef;
+
 
   listOptionSelector: ListOption[];
 
@@ -34,7 +41,15 @@ export class SelectorPageComponent implements OnInit {
     ];
   }
 
-  selectedEvent($event: ListOption[]) {
-    this.selected = $event;
+  getWidth() {
+
   }
+
+  selectedEvent($event: ListOption[]) {
+  }
+
+  ngAfterViewInit(): void {
+
+  }
+
 }

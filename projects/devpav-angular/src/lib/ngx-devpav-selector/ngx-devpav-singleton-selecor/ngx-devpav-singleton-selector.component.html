@@ -1,4 +1,4 @@
-<div class="ngx-devpav-singleton-selector" (focusin)="valueBlur($event)">
+<div class="ngx-devpav-singleton-selector">
   <div class="ngx-devpav-singleton-selector__header" (click)="setDropdownState()">
     <ngx-devpav-icon width="18" *ngIf="icon" class="ngx-devpav-singleton-selector__header-icon" [name]="icon"></ngx-devpav-icon>
     <span class="ngx-devpav-singleton-selector__header-title">{{ngxSelected && ngxSelected.length !== 0 ? ngxSelected[0]?.name : 'Не выбрано'}}</span>
