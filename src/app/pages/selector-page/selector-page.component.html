@@ -1,5 +1,16 @@
 <ngx-devpav-container ngxMd="100" ngxLg="200" #container>
   <ngx-devpav-padding top="20" bottom="20" left="20" right="20">
-    <ngx-devpav-schedule distanceY="30" [events]="[]"></ngx-devpav-schedule>
+    <ngx-devpav-button title="Установить событие" (mouseEvent)="getWidth()"></ngx-devpav-button>
   </ngx-devpav-padding>
+  <ngx-devpav-padding top="20" bottom="20" left="20" right="20">
+    {{timeEvent | json}}
+  </ngx-devpav-padding>
+  <ngx-devpav-margin top="20" bottom="20">
+    <ngx-devpav-calendar [ngxMonth]="12" ngxYear="2019"></ngx-devpav-calendar>
+  </ngx-devpav-margin>
+  <div style="height: 760px; width: 600px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.04); padding: 10px 0">
+    <ngx-devpav-padding top="20" bottom="20" left="20" right="20">
+      <ngx-devpav-schedule distanceY="30" (timeEventClick)="eventClick($event)" [events]="events"></ngx-devpav-schedule>
+    </ngx-devpav-padding>
+  </div>
 </ngx-devpav-container>

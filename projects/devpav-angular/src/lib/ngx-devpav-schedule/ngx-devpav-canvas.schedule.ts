@@ -1,9 +1,18 @@
 import {Injectable} from '@angular/core';
 
-export interface BoardEvent {
+export interface TimeEvent {
   id: string;
+  name: string;
+  description?: string;
   start: Date;
   end: Date;
+}
+
+export interface EventPosition {
+  xS: number;
+  yS: number;
+  xE: number;
+  yE: number;
 }
 
 
@@ -17,8 +26,17 @@ export class NgxDevpavCanvasSchedule {
   private _width: number;
   private _height: number;
 
+  private _events: TimeEvent[] = [];
+
+  private eventPosition: Map<string, EventPosition> = new Map<string, EventPosition>();
+
+
   public set context(context: CanvasRenderingContext2D) {
     this._context = context;
+  }
+
+  public set events(events: TimeEvent[]) {
+    this._events = events;
   }
 
   public set distanceY(distanceY: number) {
@@ -26,7 +44,6 @@ export class NgxDevpavCanvasSchedule {
   }
 
   public set width(width: number) {
-    console.log(width);
     this._width = width;
   }
 
@@ -35,11 +52,16 @@ export class NgxDevpavCanvasSchedule {
   }
 
   refresh() {
-    this._context.clearRect(0, 0, 4000, 4000);
+    this._context.clearRect(0, 0, this._width, this._height);
 
     this.buildTimeLine();
     this.buildTimeZone();
     this.buildTimeLineY();
+
+    this._events.forEach(event => {
+      console.log(event);
+      this.buildTimeEvent(event);
+    });
   }
 
   private buildTimeZone = (color: string = 'rgba(232,232,232,0.81)') => {
@@ -56,7 +78,7 @@ export class NgxDevpavCanvasSchedule {
     this._context.closePath();
   }
 
-  private buildTimeLineY = (color: string = 'rgb(123, 123, 123)') => {
+  private buildTimeLineY = (color: string = 'rgb(52,52,52)') => {
     this._context.beginPath();
     this._context.fillStyle = color;
 
@@ -84,7 +106,7 @@ export class NgxDevpavCanvasSchedule {
     this._context.closePath();
   }
 
-  private buildTimeLine = (color: string = 'rgb(2,94,255)') => {
+  private buildTimeLine = (color: string = 'rgb(232,34,83)') => {
     this._context.beginPath();
 
     this._context.strokeStyle = color;
@@ -99,8 +121,7 @@ export class NgxDevpavCanvasSchedule {
     this._context.closePath();
   }
 
-
-  private buildEventTime = (event: BoardEvent, color: string = 'rgb(2, 94, 255)') => {
+  public buildTimeEvent = (event: TimeEvent, color: string = 'rgba(2,94,255,0.63)') => {
     this._context.beginPath();
 
     this._context.fillStyle = color;
@@ -108,9 +129,47 @@ export class NgxDevpavCanvasSchedule {
     const pointStart = this.calcPoint(event.start, this._distanceY, this._width);
     const pointEnd = this.calcPoint(event.end, this._distanceY, this._width);
 
-    this._context.fillRect(pointStart.x, pointStart.y + pointStart.h, this.width,
-      (pointEnd.h + pointEnd.y) - (pointStart.y + pointStart.h));
+    const yS = pointStart.y + pointStart.h;
+    const yE = pointEnd.h + pointEnd.y;
 
+    this._context.fillRect(pointStart.x, yS, this._width, yE - yS);
+
+    const eventPosition = {xE: this._width, xS: pointStart.x, yE, yS};
+
+    this.eventPosition.set(event.id, eventPosition);
+
+    this.buildTimeEventName(event);
+
+    this._context.closePath();
+  }
+
+  private buildTimeEventName = (timeEvent: TimeEvent) => {
+    if (!this.eventPosition.has(timeEvent.id)) {
+      return;
+    }
+
+    this._context.beginPath();
+
+    this._context.font = '12px serif';
+    this._context.fillStyle = 'rgb(255,255,255)';
+
+    const eventPosition = this.eventPosition.get(timeEvent.id);
+
+    this._context.fillText(timeEvent.name, eventPosition.xS + 15, eventPosition.yS + 25);
+
+    if (timeEvent.description) {
+      const textLength = timeEvent.description.length;
+      const textRow = Math.ceil(textLength / (this._width / 10));
+      const textSize = (this._width / 5) - 30;
+
+      this._context.font = '12px serif';
+      let lastTextRowPosition = 30;
+      for (let i = 0; i <= textRow; i++) {
+        lastTextRowPosition += 15;
+        const line = timeEvent.description.substring(i * textSize, (i * textSize) + textSize);
+        this._context.fillText(line.trim(), eventPosition.xS + 15, eventPosition.yS + lastTextRowPosition);
+      }
+    }
     this._context.closePath();
   }
 
@@ -121,6 +180,22 @@ export class NgxDevpavCanvasSchedule {
       w: width,
       h: ((distanceY) / 60) * date.getMinutes()
     };
+  }
+
+  getEvent(mouseEvent: MouseEvent) {
+    let event = null;
+    this.eventPosition.forEach((value, key, map) => {
+      const isEvent = value.yS <= mouseEvent.offsetY
+        && value.yE >= mouseEvent.offsetY
+        && mouseEvent.offsetX >= value.xS && mouseEvent.offsetX <= value.xE;
+
+      if (isEvent) {
+        event = key;
+        return;
+      }
+    });
+
+    return event;
   }
 
 }

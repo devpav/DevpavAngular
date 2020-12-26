@@ -1,5 +1,16 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
-import {NgxDevpavCanvasSchedule} from '../ngx-devpav-canvas.schedule';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import {NgxDevpavCanvasSchedule, TimeEvent} from '../ngx-devpav-canvas.schedule';
 
 
 @Component({
@@ -19,12 +30,15 @@ export class NgxDevpavScheduleComponent implements OnInit, OnChanges, AfterViewI
   public distanceY = 35;
 
   @Input()
-  public events: Event[];
+  public events: TimeEvent[];
 
-  @Input()
+  @Output()
+  private timeEventClick = new EventEmitter<TimeEvent>();
+
   public width = 1000;
 
   public height = this.distanceY * 25;
+
 
   constructor(private ngxCanvasSchedule: NgxDevpavCanvasSchedule) {
   }
@@ -37,22 +51,36 @@ export class NgxDevpavScheduleComponent implements OnInit, OnChanges, AfterViewI
     if (changes.distanceY) {
       this.height = changes.distanceY.currentValue * 25;
     }
+    if (changes.events) {
+      this.ngxCanvasSchedule.events = this.events;
+    }
   }
 
   ngAfterViewInit(): void {
     const cnv = document.getElementById('canvas') as HTMLCanvasElement;
     const panel = cnv.parentElement;
 
-
+    cnv.addEventListener('click', (event: MouseEvent) => {
+      const evn = this.ngxCanvasSchedule.getEvent(event);
+      if (evn) {
+        const timeEvent = this.events.find(it => it.id === evn);
+        if (timeEvent) {
+          this.timeEventClick.emit(timeEvent);
+        }
+      }
+    });
 
     window.addEventListener('resize', () => {
       const clientWidth = panel.getBoundingClientRect().width;
       cnv.width = clientWidth;
+
       this.ngxCanvasSchedule.context = canvas.getContext('2d');
       this.ngxCanvasSchedule.width = clientWidth;
 
       this.ngxCanvasSchedule.refresh();
     });
+
+    setInterval(() => this.ngxCanvasSchedule.refresh(), 1000);
 
     const canvas = this.canvas.nativeElement as HTMLCanvasElement;
 
