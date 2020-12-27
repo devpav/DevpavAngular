@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:lib": "sudo ng-packagr -p projects/devpav-angular/ng-package.json && ts-node projects/devpav-angular/css-bundle.ts"
+    "build:lib": "ng-packagr -p projects/devpav-angular/ng-package.json && ts-node projects/devpav-angular/css-bundle.ts"
   },
   "private": true,
   "dependencies": {

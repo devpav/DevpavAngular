@@ -17,12 +17,13 @@ import {NgxDevpavAvatarModule} from '../ngx-devpav-avatar/ngx-devpav-avatar.modu
     NgxDevpavIconListComponent,
     NgxDevpavIconListOptionComponent
   ],
-    imports: [
-        CommonModule,
-        NgxDevpavLayoutModule,
-        NgxDevpavIconModule,
-        NgxDevpavLoaderModule,
-        NgxDevpavAvatarModule
-    ]
+  imports: [
+    CommonModule,
+    NgxDevpavLayoutModule,
+    NgxDevpavIconModule,
+    NgxDevpavLoaderModule,
+    NgxDevpavAvatarModule
+  ]
 })
-export class NgxDevpavListModule { }
+export class NgxDevpavListModule {
+}
