@@ -23,6 +23,7 @@ import {NgxDevpavScheduleModule} from '../../projects/devpav-angular/src/lib/ngx
 import {NgxDevpavCalendarModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-calendar/ngx-devpav-calendar.module';
 import {SelectorPageComponent} from './pages/selector-page/selector-page.component';
 import {NgxDevpavSelectorModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-selector/ngx-devpav-selector.module';
+import {NgxDevpavListModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-list/ngx-devpav-list.module';
 
 @NgModule({
   declarations: [
@@ -36,37 +37,38 @@ import {NgxDevpavSelectorModule} from '../../projects/devpav-angular/src/lib/ngx
     SchedulePageComponent,
     SelectorPageComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: 'schedules',
-        component: SchedulePageComponent
-      },
-      {
-        path: 'selectors',
-        component: SelectorPageComponent
-      },
-      {
-        path: '**',
-        redirectTo: 'selectors'
-      }
-    ]),
-    AppRoutingModule,
-    NgxDevpavSelectModule,
-    NgxDevpavThemeModule,
-    NgxDevpavFormInputModule,
-    NgxDevpavChipModule,
-    NgxDevpavPanelModule,
-    NgxDevpavLayoutModule,
-    NgxDevpavButtonModule,
-    NgxDevpavIconModule,
-    NgxDevpavAvatarModule,
-    NgxDevpavFlopPanelModule,
-    NgxDevpavScheduleModule,
-    NgxDevpavCalendarModule,
-    NgxDevpavSelectorModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot([
+            {
+                path: 'schedules',
+                component: SchedulePageComponent
+            },
+            {
+                path: 'selectors',
+                component: SelectorPageComponent
+            },
+            {
+                path: '**',
+                redirectTo: 'selectors'
+            }
+        ]),
+        AppRoutingModule,
+        NgxDevpavSelectModule,
+        NgxDevpavThemeModule,
+        NgxDevpavFormInputModule,
+        NgxDevpavChipModule,
+        NgxDevpavPanelModule,
+        NgxDevpavLayoutModule,
+        NgxDevpavButtonModule,
+        NgxDevpavIconModule,
+        NgxDevpavAvatarModule,
+        NgxDevpavFlopPanelModule,
+        NgxDevpavScheduleModule,
+        NgxDevpavCalendarModule,
+        NgxDevpavSelectorModule,
+        NgxDevpavListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

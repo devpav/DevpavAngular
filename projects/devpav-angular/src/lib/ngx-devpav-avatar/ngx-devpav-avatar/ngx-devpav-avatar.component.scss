@@ -1,4 +1,9 @@
 .ngx-devpav-avatar {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
   img {
     object-fit: cover;
   }

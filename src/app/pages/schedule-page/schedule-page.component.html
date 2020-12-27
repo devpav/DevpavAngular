@@ -1,12 +1,34 @@
 <ngx-devpav-container ngxMd="100" ngxLg="200">
   <ngx-devpav-padding top="20">
   </ngx-devpav-padding>
-  <ngx-devpav-padding top="20">
-    <ngx-devpav-button (mouseEvent)="month = month - 1" title="Prev month" style="margin-right: 10px"></ngx-devpav-button>
-    <div style="margin-right: 10px; width: 300px;">{{mouths[month - 1]}}</div>
-    <ngx-devpav-button (mouseEvent)="month = month + 1" title="Next month"></ngx-devpav-button>
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(200px, max-content)); grid-column: 1 / span 4; grid-gap: 20px">
+    <ngx-devpav-button-stepper [middleValue]="mouths[month - 1]" (prev)="month = month - 1" (next)="month = month + 1">
+    </ngx-devpav-button-stepper>
+    <ngx-devpav-button title="Подтвердить"></ngx-devpav-button>
+  </div>
+  <ngx-devpav-padding top="20" bottom="20">
+    <ngx-devpav-icon-list>
+      <ngx-devpav-icon-list-option [loading]="month === 1" ngxSrcAvatar="https://i.pinimg.com/474x/e4/c5/9f/e4c59fdbb41ccd0f87dc0be871d91d98.jpg" ngxTitle="Талайко Павел Дмитриевич"></ngx-devpav-icon-list-option>
+      <ngx-devpav-icon-list-option [loading]="month === 1" ngxSrcAvatar="https://i.pinimg.com/474x/e4/c5/9f/e4c59fdbb41ccd0f87dc0be871d91d98.jpg" ngxTitle="Талайко Павел Дмитриевич"></ngx-devpav-icon-list-option>
+    </ngx-devpav-icon-list>
   </ngx-devpav-padding>
   <ngx-devpav-margin top="20" bottom="20">
     <ngx-devpav-calendar [ngxYear]="year" [ngxMonth]="month"></ngx-devpav-calendar>
   </ngx-devpav-margin>
+  <ngx-devpav-padding top="20" bottom="20" right="20">
+    <ngx-devpav-button title="Установить событие" (mouseEvent)="getWidth()"></ngx-devpav-button>
+  </ngx-devpav-padding>
+  <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: flex-start; ">
+    <div style="box-sizing: content-box; position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04); flex-basis: 60%; height: 760px; margin-right: 15px;">
+      <ngx-devpav-padding top="20" bottom="20" left="20" right="20">
+        <ngx-devpav-schedule distanceY="30" (timeEventClick)="eventClick($event)" [events]="events"></ngx-devpav-schedule>
+      </ngx-devpav-padding>
+    </div>
+    <div style="width: 100%; flex-basis: 40%;">
+      <div style="margin-bottom: 20px" *ngFor="let i of events">
+        <ngx-devpav-schedule-event  [timeEvent]="i"></ngx-devpav-schedule-event>
+      </div>
+    </div>
+  </div>
 </ngx-devpav-container>

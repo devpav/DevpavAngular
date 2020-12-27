@@ -1,0 +1,30 @@
+.ngx-devpav-button-stepper {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+
+  box-sizing: border-box;
+  padding: 5px;
+
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  &__middle {
+    text-align: center;
+    margin: 0 10px;
+    width: 100px;
+    overflow: hidden;
+  }
+
+  &__left {
+    position: absolute;
+    left: 10px;
+  }
+
+  &__right {
+    position: absolute;
+    right: 10px;
+  }
+}

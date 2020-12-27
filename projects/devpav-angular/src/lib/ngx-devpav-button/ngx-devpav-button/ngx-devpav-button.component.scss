@@ -5,6 +5,7 @@
   $ngx-devpav-button-background-hover,
   $ngx-devpav-button-color-hover
 ) {
+  width: 100%;
   background-color: $ngx-devpav-button-background;
   border: 1px solid $ngx-devpav-button-border-color;
   color: $ngx-devpav-button-color;

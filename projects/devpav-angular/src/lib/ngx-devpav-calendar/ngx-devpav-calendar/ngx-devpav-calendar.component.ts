@@ -32,6 +32,7 @@ export class NgxDevpavCalendarComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.dates = this.getMonthDays(this.ngxYear, this.ngxMonth);
     this.spans = this.getSpan(this.dates);
+
   }
 
   getMonthDays(year: number, mouth: number) {
@@ -43,7 +44,6 @@ export class NgxDevpavCalendarComponent implements OnInit, OnChanges {
 
     const everyDay: Date[] = [];
 
-    console.log(daysInMonth);
     for (let i = 1; i <= daysInMonth; i++) {
       everyDay.push(new Date(year, systemMonth, i));
     }
@@ -67,14 +67,15 @@ export class NgxDevpavCalendarComponent implements OnInit, OnChanges {
   getSpan(dates: Date[]): number[] {
     if (!dates[0]) { return [0]; }
 
-    const spans = dates[0].getDay();
+    let spans = dates[0].getDay();
+    if (spans === 0) {
+      spans = 7;
+    }
     const numbers = [];
 
     for (let i = 1; i < spans; i++) {
       numbers.push(i);
     }
-
-    console.log(spans, dates[0]);
 
     return numbers;
   }

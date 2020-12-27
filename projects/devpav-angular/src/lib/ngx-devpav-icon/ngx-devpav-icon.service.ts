@@ -25,14 +25,14 @@ export class NgxDevpavIconService {
   }
 
   getIcon(name: string, ngxDevpavIcon: NgxDevpavIcon): string {
-    return this.transformSvgIcon(this.icons.get(name), ngxDevpavIcon);
+    return NgxDevpavIconService.transformSvgIcon(this.icons.get(name), ngxDevpavIcon);
   }
 
   setIcon(name: string, svg: string): void {
     this.icons.set(name, svg);
   }
 
-  private transformSvgIcon(svg: string, ngxDevpavIcon: NgxDevpavIcon) {
+  private static transformSvgIcon(svg: string, ngxDevpavIcon: NgxDevpavIcon) {
     if (svg) {
       let svgClone = svg + '';
       if (ngxDevpavIcon.width) {

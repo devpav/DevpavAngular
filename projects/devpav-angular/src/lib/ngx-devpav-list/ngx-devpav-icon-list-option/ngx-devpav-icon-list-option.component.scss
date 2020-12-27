@@ -1,0 +1,40 @@
+.ngx-devpav-icon-list-option {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+
+  height: 40px;
+  cursor: pointer;
+
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100em 0;
+    }
+  }
+
+  .loading {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #eeeeee linear-gradient(to right, #eeeeee 8%, rgba(201, 201, 201, 0.19) 18%, #eeeeee 33%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 17px;
+    -webkit-backface-visibility: hidden;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+  }
+
+}
