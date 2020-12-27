@@ -4,11 +4,14 @@ import {NgxDevpavScheduleComponent} from './ngx-devpav-schedule/ngx-devpav-sched
 import {NgxDevpavPanelModule} from '../ngx-devpav-panel/ngx-devpav-panel.module';
 import {NgxDevpavCanvasSchedule} from './ngx-devpav-canvas.schedule';
 import {NgxDevpavLayoutModule} from '../ngx-devpav-layout/ngx-devpav-layout.module';
+import {NgxDevpavScheduleEventComponent} from './ngx-devpav-schedule-event/ngx-devpav-schedule-event.component';
+import {NgxDevpavIconModule} from '../ngx-devpav-icon/ngx-devpav-icon.module';
 
 @NgModule({
-  declarations: [NgxDevpavScheduleComponent],
+  declarations: [NgxDevpavScheduleComponent, NgxDevpavScheduleEventComponent],
   exports: [
-    NgxDevpavScheduleComponent
+    NgxDevpavScheduleComponent,
+    NgxDevpavScheduleEventComponent
   ],
   providers: [
     NgxDevpavCanvasSchedule
@@ -16,7 +19,8 @@ import {NgxDevpavLayoutModule} from '../ngx-devpav-layout/ngx-devpav-layout.modu
   imports: [
     CommonModule,
     NgxDevpavPanelModule,
-    NgxDevpavLayoutModule
+    NgxDevpavLayoutModule,
+    NgxDevpavIconModule
   ]
 })
 export class NgxDevpavScheduleModule { }

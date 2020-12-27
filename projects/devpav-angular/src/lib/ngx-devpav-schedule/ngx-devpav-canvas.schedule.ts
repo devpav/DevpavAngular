@@ -21,15 +21,6 @@ export interface EventPosition {
 })
 export class NgxDevpavCanvasSchedule {
 
-  private _context: CanvasRenderingContext2D;
-  private _distanceY: number;
-  private _width: number;
-  private _height: number;
-
-  private _events: TimeEvent[] = [];
-
-  private eventPosition: Map<string, EventPosition> = new Map<string, EventPosition>();
-
 
   public set context(context: CanvasRenderingContext2D) {
     this._context = context;
@@ -51,17 +42,27 @@ export class NgxDevpavCanvasSchedule {
     this._height = height;
   }
 
+  private _context: CanvasRenderingContext2D;
+  private _distanceY: number;
+  private _width: number;
+  private _height: number;
+
+  private _events: TimeEvent[] = [];
+
+  private eventPosition: Map<string, EventPosition> = new Map<string, EventPosition>();
+
+  private static calcPoint(date: Date, distanceY: number, width: number) {
+    return { x: 40, y: (date.getHours() * distanceY) + 5, w: width, h: ((distanceY) / 60) * date.getMinutes() };
+  }
+
   refresh() {
-    this._context.clearRect(0, 0, this._width, this._height);
+    this._context.clearRect(0, 0, 5000, 5000);
 
     this.buildTimeLine();
     this.buildTimeZone();
     this.buildTimeLineY();
 
-    this._events.forEach(event => {
-      console.log(event);
-      this.buildTimeEvent(event);
-    });
+    this._events.forEach(event => this.buildTimeEvent(event));
   }
 
   private buildTimeZone = (color: string = 'rgba(232,232,232,0.81)') => {
@@ -78,9 +79,10 @@ export class NgxDevpavCanvasSchedule {
     this._context.closePath();
   }
 
-  private buildTimeLineY = (color: string = 'rgb(52,52,52)') => {
+  private buildTimeLineY = (color: string = 'rgb(52, 52, 52)') => {
     this._context.beginPath();
     this._context.fillStyle = color;
+    this._context.font = '12px serif';
 
     for (let i = 0; i <= 24; i++) {
       const moveToY = (i * this._distanceY) + 10;
@@ -111,7 +113,7 @@ export class NgxDevpavCanvasSchedule {
 
     this._context.strokeStyle = color;
 
-    const pointStart = this.calcPoint(new Date(), this._distanceY, this._width);
+    const pointStart = NgxDevpavCanvasSchedule.calcPoint(new Date(), this._distanceY, this._width);
 
     this._context.moveTo(pointStart.x, pointStart.y + pointStart.h);
     this._context.lineTo(pointStart.w, pointStart.y + pointStart.h);
@@ -121,13 +123,13 @@ export class NgxDevpavCanvasSchedule {
     this._context.closePath();
   }
 
-  public buildTimeEvent = (event: TimeEvent, color: string = 'rgba(2,94,255,0.63)') => {
+  public buildTimeEvent = (event: TimeEvent, color: string = '#2196f3') => {
     this._context.beginPath();
 
     this._context.fillStyle = color;
 
-    const pointStart = this.calcPoint(event.start, this._distanceY, this._width);
-    const pointEnd = this.calcPoint(event.end, this._distanceY, this._width);
+    const pointStart = NgxDevpavCanvasSchedule.calcPoint(event.start, this._distanceY, this._width);
+    const pointEnd = NgxDevpavCanvasSchedule.calcPoint(event.end, this._distanceY, this._width);
 
     const yS = pointStart.y + pointStart.h;
     const yE = pointEnd.h + pointEnd.y;
@@ -155,31 +157,11 @@ export class NgxDevpavCanvasSchedule {
 
     const eventPosition = this.eventPosition.get(timeEvent.id);
 
-    this._context.fillText(timeEvent.name, eventPosition.xS + 15, eventPosition.yS + 25);
+    const startY = (Math.ceil(eventPosition.yE - eventPosition.yS) / 2) + 4;
 
-    if (timeEvent.description) {
-      const textLength = timeEvent.description.length;
-      const textRow = Math.ceil(textLength / (this._width / 10));
-      const textSize = (this._width / 5) - 30;
+    this._context.fillText(timeEvent.name, eventPosition.xS + 15, eventPosition.yS + startY);
 
-      this._context.font = '12px serif';
-      let lastTextRowPosition = 30;
-      for (let i = 0; i <= textRow; i++) {
-        lastTextRowPosition += 15;
-        const line = timeEvent.description.substring(i * textSize, (i * textSize) + textSize);
-        this._context.fillText(line.trim(), eventPosition.xS + 15, eventPosition.yS + lastTextRowPosition);
-      }
-    }
     this._context.closePath();
-  }
-
-  private calcPoint(date: Date, distanceY: number, width: number) {
-    return {
-      x: 40,
-      y: (date.getHours() * distanceY) + 5,
-      w: width,
-      h: ((distanceY) / 60) * date.getMinutes()
-    };
   }
 
   getEvent(mouseEvent: MouseEvent) {

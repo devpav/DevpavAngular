@@ -1,6 +1,12 @@
 <ngx-devpav-container ngxMd="100" ngxLg="200">
+  <ngx-devpav-padding top="20">
+  </ngx-devpav-padding>
+  <ngx-devpav-padding top="20">
+    <ngx-devpav-button (mouseEvent)="month = month - 1" title="Prev month" style="margin-right: 10px"></ngx-devpav-button>
+    <div style="margin-right: 10px; width: 300px;">{{mouths[month - 1]}}</div>
+    <ngx-devpav-button (mouseEvent)="month = month + 1" title="Next month"></ngx-devpav-button>
+  </ngx-devpav-padding>
   <ngx-devpav-margin top="20" bottom="20">
-    <ngx-devpav-calendar [ngxMonth]="12" ngxYear="2019"></ngx-devpav-calendar>
+    <ngx-devpav-calendar [ngxYear]="year" [ngxMonth]="month"></ngx-devpav-calendar>
   </ngx-devpav-margin>
 </ngx-devpav-container>
-

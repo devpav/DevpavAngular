@@ -1,0 +1,20 @@
+<ngx-devpav-panel-section>
+  <ngx-devpav-panel-header>
+    <ngx-devpav-padding top="15" bottom="10" left="20">
+      <div style="display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center;">
+        <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: center;">
+          <ngx-devpav-icon name="event" fill="#2196F3" style="margin-right: 15px"></ngx-devpav-icon>
+          {{timeEvent?.name}}
+        </div>
+        <div style="font-size: 12px; display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: center; margin-right: 15px">
+          {{timeEvent?.start | date:'HH:mm'}} - {{timeEvent?.end | date:'HH:mm'}}
+        </div>
+      </div>
+    </ngx-devpav-padding>
+  </ngx-devpav-panel-header>
+  <ngx-devpav-panel-content style="font-size: 12px">
+    <ngx-devpav-padding left="20" right="20" top="15" bottom="15">
+      {{timeEvent?.description}}
+    </ngx-devpav-padding>
+  </ngx-devpav-panel-content>
+</ngx-devpav-panel-section>

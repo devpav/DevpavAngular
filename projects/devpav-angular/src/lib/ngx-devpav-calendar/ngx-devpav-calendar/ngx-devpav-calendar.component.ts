@@ -7,6 +7,16 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 })
 export class NgxDevpavCalendarComponent implements OnInit, OnChanges {
 
+  public days: string[] = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресение'
+  ];
+
   @Input()
   public ngxYear: number;
 
@@ -15,28 +25,27 @@ export class NgxDevpavCalendarComponent implements OnInit, OnChanges {
 
 
   dates: Date[];
+  spans: number[];
 
   constructor() { }
 
   ngOnInit() {
     this.dates = this.getMonthDays(this.ngxYear, this.ngxMonth);
+    this.spans = this.getSpan(this.dates);
   }
 
   getMonthDays(year: number, mouth: number) {
     const systemMonth = mouth - 1;
 
-    const calculate = new Date();
+    const calculate = new Date(year, mouth, 0);
 
-    calculate.setFullYear(year, systemMonth);
-
-    const daysInMonth = new Date(year, mouth + 1, 0).getDate();
+    const daysInMonth = calculate.getDate();
 
     const everyDay: Date[] = [];
 
+    console.log(daysInMonth);
     for (let i = 1; i <= daysInMonth; i++) {
-      const currentDay = new Date();
-      currentDay.setFullYear(year, systemMonth, i);
-      everyDay.push(currentDay);
+      everyDay.push(new Date(year, systemMonth, i));
     }
 
     return everyDay;
@@ -51,6 +60,23 @@ export class NgxDevpavCalendarComponent implements OnInit, OnChanges {
       const month = changes.ngxMonth.currentValue;
       this.dates = this.getMonthDays(this.ngxYear, month);
     }
+    this.spans = this.getSpan(this.dates);
+  }
+
+
+  getSpan(dates: Date[]): number[] {
+    if (!dates[0]) { return [0]; }
+
+    const spans = dates[0].getDay();
+    const numbers = [];
+
+    for (let i = 1; i < spans; i++) {
+      numbers.push(i);
+    }
+
+    console.log(spans, dates[0]);
+
+    return numbers;
   }
 
 }

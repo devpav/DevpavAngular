@@ -10,6 +10,9 @@ export class NgxDevpavCalendarSectorComponent implements OnInit {
   @Input()
   date: Date;
 
+  @Input()
+  ngxEventCount: number = 0;
+
   constructor() { }
 
   ngOnInit() {

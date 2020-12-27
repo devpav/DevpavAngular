@@ -7,6 +7,25 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SchedulePageComponent implements OnInit {
 
+  mouths: string[] = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
+
+  month: number = 1;
+
+  year: number = 2020;
+
   constructor() { }
 
   ngOnInit() {

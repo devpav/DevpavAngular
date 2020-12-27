@@ -6,12 +6,26 @@
   background: white;
 
   &:hover {
-    background: rgb(252, 252, 252);
+    background: #2196f3;
     cursor: pointer;
+    // border: 1px solid rgba(255, 255, 255, 0.77);
   }
 
   &:hover &__date {
-    font-weight: 600;
+    color: white;
+  }
+
+  &:hover &__event {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 10px;
+    display: block;
+  }
+
+  &__event {
+    display: none;
   }
 
   &__date {

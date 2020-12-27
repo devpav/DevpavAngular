@@ -32,6 +32,12 @@ export class NgxDevpavScheduleComponent implements OnInit, OnChanges, AfterViewI
   @Input()
   public events: TimeEvent[];
 
+  @Input()
+  public startWith: number;
+
+  @Input()
+  public endWith: number;
+
   @Output()
   private timeEventClick = new EventEmitter<TimeEvent>();
 
@@ -69,7 +75,6 @@ export class NgxDevpavScheduleComponent implements OnInit, OnChanges, AfterViewI
         }
       }
     });
-
     window.addEventListener('resize', () => {
       const clientWidth = panel.getBoundingClientRect().width;
       cnv.width = clientWidth;
@@ -80,16 +85,21 @@ export class NgxDevpavScheduleComponent implements OnInit, OnChanges, AfterViewI
       this.ngxCanvasSchedule.refresh();
     });
 
-    setInterval(() => this.ngxCanvasSchedule.refresh(), 1000);
+    setInterval(() => {
+      this.ngxCanvasSchedule.refresh();
+    }, 1000);
+
 
     const canvas = this.canvas.nativeElement as HTMLCanvasElement;
 
     this.ngxCanvasSchedule.context = canvas.getContext('2d');
 
     canvas.width = panel.getBoundingClientRect().width;
+
     this.ngxCanvasSchedule.distanceY = this.distanceY;
     this.ngxCanvasSchedule.height = this.height;
     this.ngxCanvasSchedule.width = this.width;
+    this.ngxCanvasSchedule.events = this.events;
 
     this.ngxCanvasSchedule.refresh();
   }

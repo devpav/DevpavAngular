@@ -1,8 +1,9 @@
 <ngx-devpav-panel>
   <div class="ngx-devpav-calendar">
-    <ng-template ngFor let-date [ngForOf]="this.dates">
+    <div class="ngx-devpav-calendar__header" *ngFor="let dayOfWeek of days">{{dayOfWeek}}</div>
+    <div class="ngx-devpav-calendar__day" *ngFor="let spanDay of spans"></div>
+    <ng-template ngFor let-date [ngForOf]="dates">
       <ngx-devpav-calendar-sector [date]="date"></ngx-devpav-calendar-sector>
     </ng-template>
   </div>
 </ngx-devpav-panel>
-
