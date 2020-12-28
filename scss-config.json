@@ -1,7 +1,0 @@
-{
-  "pathCompiledLibrary": "dist/devpav-angular",
-  "distNameFile": "_theme.scss",
-  "originNameFile": "_theme.scss",
-  "locationOriginFile": "projects/devpav-angular/src",
-  "matchesFile": ["projects/devpav-angular/src/**/*.scss", "projects/devpav-angular/src/**/**/scss"]
-}

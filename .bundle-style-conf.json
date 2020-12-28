@@ -1,0 +1,5 @@
+{
+  "dest": "dist/devpav-angular/index.scss",
+  "mask": ["projects/devpav-angular/src/lib/**/**/*.scss", "projects/devpav-angular/src/*.scss"],
+  "sort": ["first-priority", "second-priority", "mixin"]
+}
