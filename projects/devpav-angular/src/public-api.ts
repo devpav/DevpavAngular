@@ -18,6 +18,6 @@ export * from './lib/ngx-devpav-flop-panel/ngx-devpav-flop-panel.module';
 export * from './lib/ngx-devpav-theme/ngx-devpav-theme.service';
 
 // interfaces
-export { Theme, light } from './lib/theme.config';
-export { ListOption } from './lib/ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.component';
+export * from './lib/theme.config';
+export * from './lib/ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.component';
 

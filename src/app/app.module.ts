@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NgxDevpavFormInputModule, NgxDevpavSelectModule, NgxDevpavThemeModule} from 'projects/devpav-angular/src/public-api';
+import {NgxDevpavFormInputModule, NgxDevpavSelectModule} from 'projects/devpav-angular/src/public-api';
 import {NgxDevpavChipModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-chip/ngx-devpav-chip.module';
 import {NgxDevpavPanelModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-panel/ngx-devpav-panel.module';
 import {NgxDevpavLayoutModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-layout/ngx-devpav-layout.module';
@@ -55,7 +55,6 @@ import {NgxDevpavListModule} from '../../projects/devpav-angular/src/lib/ngx-dev
         ]),
         AppRoutingModule,
         NgxDevpavSelectModule,
-        NgxDevpavThemeModule,
         NgxDevpavFormInputModule,
         NgxDevpavChipModule,
         NgxDevpavPanelModule,

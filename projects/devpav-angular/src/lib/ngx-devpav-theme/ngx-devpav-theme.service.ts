@@ -6,11 +6,11 @@ import {dark, light, NgxStyleElement, Theme} from '../theme.config';
 })
 export class NgxDevpavThemeService {
 
-  private map = new Map<string, Theme>();
+  private themeStore: { [key: string]: Theme } = {};
 
   constructor() {
-    this.map.set(light.id, light);
-    this.map.set(dark.id, dark);
+    this.themeStore[light.id] = light;
+    this.themeStore[dark.id] = dark;
   }
 
   private functionSetPropertyCSS = (styleElement: NgxStyleElement) => {
@@ -27,7 +27,7 @@ export class NgxDevpavThemeService {
       throw Error('Theme\'s name must be not undefined or null');
     }
 
-    this.map.set(theme.id, theme);
+    this.themeStore[theme.id] = theme;
 
     return this;
   }
@@ -40,16 +40,17 @@ export class NgxDevpavThemeService {
       return;
     }
 
-    this.map.delete(nameTheme);
+    delete this.themeStore[nameTheme];
   }
 
   getList(): Theme[] {
-    const themes: Theme[] = Array.from(this.map.values());
+    const values = Object.keys(this.themeStore).map(it => this.themeStore[it]);
+    const themes: Theme[] = Array.from(values);
     return themes.map(theme => ({...theme}));
   }
 
   applyTheme(theme: Theme) {
-    const themeRegister = this.map.get(theme.id);
+    const themeRegister = this.themeStore[theme.id];
 
     if (!themeRegister) {
       throw new Error('Theme with id ' + theme.id + ' not found');

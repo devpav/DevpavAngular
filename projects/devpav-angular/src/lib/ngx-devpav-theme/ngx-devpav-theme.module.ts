@@ -8,7 +8,7 @@ export interface NgxThemeOptions {
   active: Theme;
 }
 
-const ngxThemeFactory = (ngxThemeOption: NgxThemeOptions): NgxDevpavThemeService => {
+export function ngxThemeFactory(ngxThemeOption: NgxThemeOptions): NgxDevpavThemeService {
   const ngxDevpavThemeService = new NgxDevpavThemeService();
 
   if (ngxThemeOption.themes) {
@@ -18,7 +18,7 @@ const ngxThemeFactory = (ngxThemeOption: NgxThemeOptions): NgxDevpavThemeService
   ngxDevpavThemeService.applyTheme(ngxThemeOption.active);
 
   return (ngxDevpavThemeService);
-};
+}
 
 @NgModule({
   declarations: [],
