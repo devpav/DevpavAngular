@@ -13,7 +13,7 @@ async function bundleScss() {
 
   const { found, bundledContent, imports } = await new Bundler()
     .bundle(pathToOriginalSCSSFile,
-      [scssConfig.matchesFile]);
+      [...scssConfig.matchesFile]);
 
   console.log(`Found: ${found}`);
   console.log(`Imports: ${imports}`);
