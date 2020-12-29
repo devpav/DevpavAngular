@@ -1,13 +1,15 @@
-<div class="ngx-devpav-singleton-selector">
+<div class="ngx-devpav-singleton-selector" >
   <div class="ngx-devpav-singleton-selector__header" (click)="setDropdownState()">
     <ngx-devpav-icon width="18" *ngIf="icon" class="ngx-devpav-singleton-selector__header-icon" [name]="icon"></ngx-devpav-icon>
-    <span class="ngx-devpav-singleton-selector__header-title">{{ngxSelected && ngxSelected.length !== 0 ? ngxSelected[0]?.name : title}}</span>
+    <span class="ngx-devpav-singleton-selector__header-title">{{getHeaderName()}}</span>
     <ngx-devpav-icon width="18" class="ngx-devpav-singleton-selector__header-action-icon"
                      [name]="isUnFlopped() ? 'arrow-down' : 'arrow-up'"></ngx-devpav-icon>
   </div>
   <div class="ngx-devpav-singleton-selector__flop">
-    <div [@triggerDropdown]="flopState" class="ngx-devpav-singleton-selector__flop--box">
-      <ngx-devpav-list [ngxSelectedListOptions]="ngxSelected" (ngxSelect)="selectOptions($event)" [ngxListOptions]="ngxListOptions"></ngx-devpav-list>
+    <div [@triggerDropdown]="flopState"
+         (mouseleave)="mouse($event)"
+         class="ngx-devpav-singleton-selector__flop--box">
+      <ngx-devpav-list [ngxSelectedListOptions]="ngxSelected" [ngxMultiple]="ngxMultiSelect" (ngxSelect)="selectOptions($event)" [ngxListOptions]="ngxListOptions"></ngx-devpav-list>
     </div>
   </div>
 </div>

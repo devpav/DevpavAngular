@@ -39,18 +39,18 @@ export class NgxDevpavListComponent implements OnInit, OnChanges {
     let ngxMultiple = false;
     if (changes.ngxMultiple) {
       ngxMultiple = changes.ngxMultiple.currentValue;
+      this.selectionModel = new SelectionModel<ListOption>(ngxMultiple, this.ngxSelectedListOptions);
     }
     let ngxSelectedListOptions: ListOption[] = [];
     if (changes.ngxSelectedListOptions) {
       ngxSelectedListOptions = changes.ngxSelectedListOptions.currentValue;
     }
-
-    this.selectionModel = new SelectionModel<ListOption>(ngxMultiple, ngxSelectedListOptions);
   }
 
   selectEvent($event: MouseEvent, option) {
     this.selectionModel.toggle(option);
     const selected = this.selectionModel.selected;
-    this.ngxSelect.emit( selected);
+    console.log(selected);
+    this.ngxSelect.emit(selected);
   }
 }
