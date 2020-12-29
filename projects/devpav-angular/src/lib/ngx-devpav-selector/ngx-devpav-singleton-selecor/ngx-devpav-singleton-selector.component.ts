@@ -83,7 +83,7 @@ export class NgxDevpavSingletonSelectorComponent implements OnInit {
         for (let i = 0; i < count; i++) {
           valueList.push(this.ngxSelected[i].name);
         }
-        title = valueList.join(',');
+        title = valueList.join(', ');
 
         let stringTmp = title.substring(0, 40);
 
