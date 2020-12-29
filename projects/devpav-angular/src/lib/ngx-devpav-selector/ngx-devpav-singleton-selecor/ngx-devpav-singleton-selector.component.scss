@@ -40,17 +40,27 @@
     &-title {
       font-size: 14px;
     }
-   }
+  }
 
   &__flop {
     position: absolute;
     top: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    // border: 1px solid rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
-    z-index: 10000;
     background: #ffffff;
     width: inherit;
+    // padding: 10px 5px;
+    overflow: hidden;
+
+    &--box {
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      height: auto;
+      padding: 5px 5px;
+
+      box-sizing: border-box;
+    }
   }
 
 }

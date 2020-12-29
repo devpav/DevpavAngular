@@ -8,7 +8,7 @@ import {ListOption} from '../../ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.
   templateUrl: './ngx-devpav-singleton-selector.component.html',
   styleUrls: ['./ngx-devpav-singleton-selector.component.scss'],
   animations: [
-    dropdownAnimation(0.4)
+    dropdownAnimation(0.2)
   ]
 })
 export class NgxDevpavSingletonSelectorComponent implements OnInit {
@@ -34,15 +34,11 @@ export class NgxDevpavSingletonSelectorComponent implements OnInit {
   @Input()
   public icon: string;
 
-  @Input()
-  ngxSearchLine = false;
-
   @Output()
-  public ngxSelect: EventEmitter<ListOption[]> = new EventEmitter<ListOption[]>();
+  public ngxSelect = new EventEmitter<ListOption[]>();
 
 
   ngOnInit() {
-    console.log(this.ngxListOptions);
   }
 
 
@@ -54,12 +50,8 @@ export class NgxDevpavSingletonSelectorComponent implements OnInit {
     return this.flopState === 'close';
   }
 
-  selectOptions($event: ListOption | ListOption[]) {
-    this.ngxSelected = !Array.isArray($event) ? [$event] : $event;
-    this.ngxSelect.emit(!Array.isArray($event) ? [$event] : $event);
+  selectOptions($event: ListOption[]) {
+    this.ngxSelect.emit($event);
   }
 
-  valueBlur($event: FocusEvent) {
-    console.log($event);
-  }
 }

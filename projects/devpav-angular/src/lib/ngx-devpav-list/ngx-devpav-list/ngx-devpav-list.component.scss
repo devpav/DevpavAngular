@@ -1,5 +1,6 @@
 .ngx-devpav-list {
-  overflow: hidden;
+  height: auto;
   width: 100%;
-  min-height: 40px;
+  z-index: 0;
+  box-sizing: border-box;
 }

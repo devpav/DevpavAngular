@@ -5,8 +5,8 @@
         <ngx-devpav-list-option (click)="selectEvent($event, option)" [ngxSelected]="selectionModel.isSelected(option)"
                                 [ngxOption]="option"></ngx-devpav-list-option>
       </ng-template>
-      <div style=" font-size: 14px; display: flex; justify-content: center; padding: 12px; align-items: center; width: 100%; box-sizing: border-box;"
-           *ngIf="result.length === 0">Not found
+      <div style=" font-size: 14px; display: flex; justify-content: center; padding: 12px; align-items: center; width: 100%; box-sizing: border-box;" *ngIf="result.length === 0">
+        Not found
       </div>
     </ng-container>
   </ngx-devpav-loader-container>

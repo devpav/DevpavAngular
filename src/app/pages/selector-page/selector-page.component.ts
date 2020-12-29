@@ -28,10 +28,35 @@ export class SelectorPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.setObject();
   }
 
   setObject() {
     this.listOptionSelector = [
+      {
+        id: '',
+        name: 'Неделя'
+      },
+      {
+        id: '',
+        name: 'Месяц'
+      },
+      {
+        id: '',
+        name: 'Год'
+      },
+      {
+        id: '',
+        name: 'Неделя'
+      },
+      {
+        id: '',
+        name: 'Месяц'
+      },
+      {
+        id: '',
+        name: 'Год'
+      },
       {
         id: '',
         name: 'Неделя'

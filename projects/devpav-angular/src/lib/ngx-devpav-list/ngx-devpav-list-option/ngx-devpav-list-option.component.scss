@@ -6,6 +6,10 @@
   overflow: hidden;
   font-size: 14px;
 
+  &:hover {
+    background: rgb(252, 252, 252);
+  }
+
   align-items: center;
 
   &__select-identifier {

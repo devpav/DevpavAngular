@@ -25,7 +25,7 @@ export class NgxDevpavListComponent implements OnInit, OnChanges {
   selectionModel: SelectionModel<ListOption>;
 
   @Output()
-  public ngxSelect: EventEmitter<ListOption | ListOption[]> = new EventEmitter<ListOption | ListOption[]>();
+  public ngxSelect: EventEmitter<ListOption[]> = new EventEmitter<ListOption[]>();
 
 
   constructor() {
@@ -33,17 +33,24 @@ export class NgxDevpavListComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.selectionModel = new SelectionModel<ListOption>(this.ngxMultiple, this.ngxSelectedListOptions);
-
-    this.selectionModel.changed.subscribe(it => {
-      const array = it.source.selected;
-      this.ngxSelect.emit(this.ngxMultiple ? array[0] : array);
-    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    let ngxMultiple = false;
+    if (changes.ngxMultiple) {
+      ngxMultiple = changes.ngxMultiple.currentValue;
+    }
+    let ngxSelectedListOptions: ListOption[] = [];
+    if (changes.ngxSelectedListOptions) {
+      ngxSelectedListOptions = changes.ngxSelectedListOptions.currentValue;
+    }
+
+    this.selectionModel = new SelectionModel<ListOption>(ngxMultiple, ngxSelectedListOptions);
   }
 
   selectEvent($event: MouseEvent, option) {
     this.selectionModel.toggle(option);
+    const selected = this.selectionModel.selected;
+    this.ngxSelect.emit( selected);
   }
 }
