@@ -7,4 +7,13 @@
   img {
     object-fit: cover;
   }
+
+  &.initials {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+  }
+
 }

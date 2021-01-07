@@ -48,13 +48,15 @@
     background: #ffffff;
     width: inherit;
     overflow: hidden;
+    z-index: 100;
 
     &--box {
       position: relative;
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      // border: 1px solid rgba(0, 0, 0, 0.08);
       overflow: hidden;
       height: auto;
       box-sizing: border-box;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.04);
     }
   }
 

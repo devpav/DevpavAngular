@@ -1,3 +1,8 @@
-<div class="ngx-devpav-avatar">
-  <img [src]="ngxSrc" [ngStyle]="ngStyle" alt="avatar">
+<div class="ngx-devpav-avatar" [ngClass]="ngxSrc ? '' : 'initials'" [ngStyle]="ngxSrc ? {} : ngxStyleAvatarInitial">
+  <ng-template [ngIf]="ngxSrc">
+    <img [src]="ngxSrc" [ngStyle]="ngStyle" alt="avatar">
+  </ng-template>
+  <ng-template [ngIf]="!ngxSrc">
+    {{__initial}}
+  </ng-template>
 </div>

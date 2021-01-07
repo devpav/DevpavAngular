@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {NgxDevpavSingletonSelectorComponent} from './ngx-devpav-singleton-selector.component';
+import {NgxDevpavSelectorComponent} from './ngx-devpav-selector.component';
 
 describe('NgxDevpavSingletonSelecorComponent', () => {
-  let component: NgxDevpavSingletonSelectorComponent;
-  let fixture: ComponentFixture<NgxDevpavSingletonSelectorComponent>;
+  let component: NgxDevpavSelectorComponent;
+  let fixture: ComponentFixture<NgxDevpavSelectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgxDevpavSingletonSelectorComponent ]
+      declarations: [ NgxDevpavSelectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgxDevpavSingletonSelectorComponent);
+    fixture = TestBed.createComponent(NgxDevpavSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

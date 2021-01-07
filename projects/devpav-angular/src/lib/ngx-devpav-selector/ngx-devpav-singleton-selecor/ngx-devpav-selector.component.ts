@@ -4,14 +4,14 @@ import {ListOption} from '../../ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.
 
 
 @Component({
-  selector: 'ngx-devpav-singleton-selector',
-  templateUrl: './ngx-devpav-singleton-selector.component.html',
-  styleUrls: ['./ngx-devpav-singleton-selector.component.scss'],
+  selector: 'ngx-devpav-selector',
+  templateUrl: './ngx-devpav-selector.component.html',
+  styleUrls: ['./ngx-devpav-selector.component.scss'],
   animations: [
     dropdownAnimation(0.2)
   ]
 })
-export class NgxDevpavSingletonSelectorComponent implements OnInit {
+export class NgxDevpavSelectorComponent implements OnInit {
 
   @Input()
   public set ngxOpened(value: boolean) {

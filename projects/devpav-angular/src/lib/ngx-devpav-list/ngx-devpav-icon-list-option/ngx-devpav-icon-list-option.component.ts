@@ -7,14 +7,22 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NgxDevpavIconListOptionComponent implements OnInit {
 
+  public __ngxInitial: string;
+  public __ngxTitle: string;
+
   @Input()
-  loading: boolean = false;
+  loading = false;
 
   @Input()
   ngxSrcAvatar: string;
 
   @Input()
-  ngxTitle: string;
+  public set ngxTitle(value: string) {
+    if (value) {
+      this.__ngxTitle = value;
+      this.__ngxInitial =  value;
+    }
+  }
 
   constructor() { }
 
