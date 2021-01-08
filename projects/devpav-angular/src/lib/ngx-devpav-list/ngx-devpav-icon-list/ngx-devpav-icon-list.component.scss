@@ -1,4 +1,8 @@
 ::ng-deep ngx-devpav-icon-list-option {
   width: 100%;
   margin-bottom: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }

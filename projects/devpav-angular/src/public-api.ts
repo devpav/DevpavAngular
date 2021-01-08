@@ -13,6 +13,8 @@ export * from './lib/ngx-devpav-layout/ngx-devpav-layout.module';
 export * from './lib/ngx-devpav-selector/ngx-devpav-selector.module';
 export * from './lib/ngx-devpav-loader/ngx-devpav-loader.module';
 export * from './lib/ngx-devpav-flop-panel/ngx-devpav-flop-panel.module';
+export * from './lib/ngx-devpav-avatar/ngx-devpav-avatar.module';
+export * from './lib/ngx-devpav-panel/ngx-devpav-panel.module';
 
 // services
 export * from './lib/ngx-devpav-theme/ngx-devpav-theme.service';
