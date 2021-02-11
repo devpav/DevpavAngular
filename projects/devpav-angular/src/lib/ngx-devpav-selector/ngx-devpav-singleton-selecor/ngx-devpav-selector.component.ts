@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {dropdownAnimation} from '../../ngx-devpav-animations/dropdown-animation';
+import {dropdownAnimation, dropdownSelectorAnimation} from '../../ngx-devpav-animations/dropdown-animation';
 import {ListOption} from '../../ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.component';
 
 
@@ -8,7 +8,7 @@ import {ListOption} from '../../ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.
   templateUrl: './ngx-devpav-selector.component.html',
   styleUrls: ['./ngx-devpav-selector.component.scss'],
   animations: [
-    dropdownAnimation(0.2)
+    dropdownSelectorAnimation(0.2)
   ]
 })
 export class NgxDevpavSelectorComponent implements OnInit {

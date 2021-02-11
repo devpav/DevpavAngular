@@ -6,16 +6,18 @@ import {NgxDevpavLayoutModule} from '../ngx-devpav-layout/ngx-devpav-layout.modu
 import {NgxDevpavPanelContentComponent} from './ngx-devpav-panel-content/ngx-devpav-panel-content.component';
 import {NgxDevpavPanelSectionComponent} from './ngx-devpav-panel-section/ngx-devpav-panel-section.component';
 import {NgxDevpavPanelFooterComponent} from './ngx-devpav-panel-footer/ngx-devpav-panel-footer.component';
+import { NgxParagraphPanelComponent } from './paragraph-panel/ngx-paragraph-panel.component';
 
 
 @NgModule({
-  declarations: [NgxDevpavPanelComponent, NgxDevpavPanelHeaderComponent, NgxDevpavPanelContentComponent, NgxDevpavPanelSectionComponent, NgxDevpavPanelFooterComponent],
+  declarations: [NgxDevpavPanelComponent, NgxDevpavPanelHeaderComponent, NgxDevpavPanelContentComponent, NgxDevpavPanelSectionComponent, NgxDevpavPanelFooterComponent, NgxParagraphPanelComponent],
   exports: [
     NgxDevpavPanelComponent,
     NgxDevpavPanelHeaderComponent,
     NgxDevpavPanelSectionComponent,
     NgxDevpavPanelContentComponent,
-    NgxDevpavPanelFooterComponent
+    NgxDevpavPanelFooterComponent,
+    NgxParagraphPanelComponent
   ],
   imports: [
     CommonModule,

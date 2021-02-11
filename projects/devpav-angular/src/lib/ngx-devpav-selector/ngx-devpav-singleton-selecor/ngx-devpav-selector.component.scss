@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   flex-wrap: wrap;
-
+  height: auto;
   width: 100%;
 
   &__header {
@@ -17,7 +17,7 @@
 
     box-sizing: border-box;
 
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     position: relative;
 
@@ -43,21 +43,16 @@
 
   &__flop {
     position: absolute;
-    top: 50px;
+    display: inline-block;
     box-sizing: border-box;
+    top: 50px;
     background: #ffffff;
     width: inherit;
-    overflow: hidden;
-    z-index: 100;
-
-    &--box {
-      position: relative;
-      // border: 1px solid rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      height: auto;
-      box-sizing: border-box;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.04);
-    }
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto !important;
+    height: fit-content;
+    max-height: 255px;
+    z-index: 1000;
   }
 
 }

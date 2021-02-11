@@ -5,11 +5,10 @@
     <ngx-devpav-icon width="18" class="ngx-devpav-singleton-selector__header-action-icon"
                      [name]="isUnFlopped() ? 'arrow-down' : 'arrow-up'"></ngx-devpav-icon>
   </div>
-  <div class="ngx-devpav-singleton-selector__flop">
-    <div [@triggerDropdown]="flopState"
-         (mouseleave)="mouse($event)"
-         class="ngx-devpav-singleton-selector__flop--box">
-      <ngx-devpav-list [ngxSelectedListOptions]="ngxSelected" [ngxMultiple]="ngxMultiSelect" (ngxSelect)="selectOptions($event)" [ngxListOptions]="ngxListOptions"></ngx-devpav-list>
-    </div>
+  <div [@triggerDropdown]="flopState" (mouseleave)="mouse($event)" class="ngx-devpav-singleton-selector__flop">
+    <ngx-devpav-list [ngxListOptions]="ngxListOptions"
+                     [ngxMultiple]="ngxMultiSelect"
+                     [ngxSelectedListOptions]="ngxSelected" (ngxSelect)="selectOptions($event)">
+    </ngx-devpav-list>
   </div>
 </div>

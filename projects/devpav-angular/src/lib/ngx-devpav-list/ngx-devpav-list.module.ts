@@ -12,11 +12,12 @@ import {NgxDevpavAvatarModule} from '../ngx-devpav-avatar/ngx-devpav-avatar.modu
 
 @NgModule({
   declarations: [NgxDevpavListComponent, NgxDevpavListOptionComponent, NgxDevpavIconListComponent, NgxDevpavIconListOptionComponent],
-  exports: [
-    NgxDevpavListComponent,
-    NgxDevpavIconListComponent,
-    NgxDevpavIconListOptionComponent
-  ],
+    exports: [
+        NgxDevpavListComponent,
+        NgxDevpavIconListComponent,
+        NgxDevpavIconListOptionComponent,
+        NgxDevpavListOptionComponent
+    ],
   imports: [
     CommonModule,
     NgxDevpavLayoutModule,

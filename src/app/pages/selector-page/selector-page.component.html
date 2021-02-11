@@ -1,22 +1,79 @@
 <ngx-devpav-container ngxSm="20" ngxMd="100" ngxLg="200" #container>
-  <ngx-devpav-padding top="20" left="20" right="20" bottom="20">
-    <ngx-devpav-selector [ngxMultiSelect]="true" [ngxListOptions]="listOptionSelector" title="Период">
-    </ngx-devpav-selector>
-  </ngx-devpav-padding>
-  <ngx-devpav-padding top="150">
-    <ngx-devpav-form-input ph="Поиск"></ngx-devpav-form-input>
-  </ngx-devpav-padding>
-  <ngx-devpav-padding top="20">
-    <ngx-devpav-avatar initial="Павел Талайко" [ngxSize]="50" ngxBackground="#fff"></ngx-devpav-avatar>
-  </ngx-devpav-padding>
-  <ngx-devpav-padding top="20">
-    <ngx-devpav-icon-list>
-      <ngx-devpav-icon-list-option [ngxSrcAvatar]="undefined" ngxTitle="Павел Талайко">
-      </ngx-devpav-icon-list-option>
-    </ngx-devpav-icon-list>
-  </ngx-devpav-padding>
-  <ngx-devpav-padding top="20">
-    <ngx-devpav-avatar ngxSize="200" initial="Павел Талайко" ngxBackground="#fff" ngxColor="black">
-    </ngx-devpav-avatar>
-  </ngx-devpav-padding>
+  <div style="background: white; margin-top: 20px; padding: 20px">
+    <ngx-devpav-padding>
+      <ngx-devpav-panel-paragraph title="Основная информация">
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Имя"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Фамилия"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Отчество"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+      </ngx-devpav-panel-paragraph>
+    </ngx-devpav-padding>
+    <ngx-devpav-padding top="20">
+      <ngx-devpav-panel-paragraph title="Паспортные данные">
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-selector [ngxMultiSelect]="false" [ngxOpened]="false" [ngxListOptions]="[
+          {id: '', name: 'Общегражданский'},
+          {id: '', name: 'Заграничный паспорт'}
+          ]" title="Тип паспорта">
+          </ngx-devpav-selector>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Номер паспорта"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Идентификационный номер"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Орган выдавший документ"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+
+      </ngx-devpav-panel-paragraph>
+    </ngx-devpav-padding>
+    <ngx-devpav-padding top="20">
+      <ngx-devpav-panel-paragraph title="Дополнительная информация">
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Номер паспорта"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Идентификационный номер"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-form-input ph="Орган выдавший документ"></ngx-devpav-form-input>
+        </ngx-devpav-padding>
+        <ngx-devpav-padding top="20">
+          <ngx-devpav-selector [ngxMultiSelect]="false" [ngxOpened]="false" [ngxListOptions]="listOptionSelector" title="Период">
+          </ngx-devpav-selector>
+        </ngx-devpav-padding>
+      </ngx-devpav-panel-paragraph>
+    </ngx-devpav-padding>
+  </div>
+
+  <!--
+    <ngx-devpav-padding top="20" left="20" right="20" bottom="20">
+
+
+    </ngx-devpav-padding>
+    <ngx-devpav-padding top="150">
+      <ngx-devpav-form-input ph="Поиск"></ngx-devpav-form-input>
+    </ngx-devpav-padding>
+    <ngx-devpav-padding top="20">
+      <ngx-devpav-avatar initial="Павел Талайко" [ngxSize]="50" ngxBackground="#fff"></ngx-devpav-avatar>
+    </ngx-devpav-padding>
+    <ngx-devpav-padding top="20">
+      <ngx-devpav-icon-list>
+        <ngx-devpav-icon-list-option [ngxSrcAvatar]="undefined" ngxTitle="Павел Талайко">
+        </ngx-devpav-icon-list-option>
+      </ngx-devpav-icon-list>
+    </ngx-devpav-padding>
+    <ngx-devpav-padding top="20">
+      <ngx-devpav-avatar ngxSize="200" initial="Павел Талайко" ngxBackground="#fff" ngxColor="black">
+      </ngx-devpav-avatar>
+    </ngx-devpav-padding>
+  -->
+
 </ngx-devpav-container>
