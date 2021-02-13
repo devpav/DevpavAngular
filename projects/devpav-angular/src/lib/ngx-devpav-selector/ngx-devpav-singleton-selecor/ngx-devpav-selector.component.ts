@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {dropdownAnimation, dropdownSelectorAnimation} from '../../ngx-devpav-animations/dropdown-animation';
 import {ListOption} from '../../ngx-devpav-list/ngx-devpav-list/ngx-devpav-list.component';
+import {dropdownSelectorAnimation} from '../../ngx-devpav-animations/dropdown-animation';
 
 
 @Component({
