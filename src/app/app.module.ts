@@ -24,6 +24,7 @@ import {NgxDevpavCalendarModule} from '../../projects/devpav-angular/src/lib/ngx
 import {SelectorPageComponent} from './pages/selector-page/selector-page.component';
 import {NgxDevpavSelectorModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-selector/ngx-devpav-selector.module';
 import {NgxDevpavListModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-list/ngx-devpav-list.module';
+import {NgxDevpavElementModule} from '../../projects/devpav-angular/src/lib/ngx-devpav-element/ngx-devpav-element.module';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {NgxDevpavListModule} from '../../projects/devpav-angular/src/lib/ngx-dev
         NgxDevpavScheduleModule,
         NgxDevpavCalendarModule,
         NgxDevpavSelectorModule,
-        NgxDevpavListModule
+        NgxDevpavListModule,
+      NgxDevpavElementModule
     ],
   providers: [],
   bootstrap: [AppComponent]

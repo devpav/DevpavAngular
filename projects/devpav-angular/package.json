@@ -1,7 +1,7 @@
 {
   "name": "ngx-devpav-angular",
   "author": "Pavel Talaika",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "homepage": "https://github.com/devpav/DevpavAngular",
   "license": "MIT",
   "keywords": [
@@ -29,6 +29,7 @@
     "ts-node": "^8.10.2"
   },
   "dependencies": {
+
     "ngx-spinner": "^10.0.1"
   }
 }
