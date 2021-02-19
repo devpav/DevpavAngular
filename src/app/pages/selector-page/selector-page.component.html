@@ -26,9 +26,9 @@
       <ngx-devpav-panel-paragraph title="Паспортные данные">
         <ngx-devpav-padding top="20">
           <ngx-devpav-selector [ngxMultiSelect]="false" [ngxOpened]="false" [ngxListOptions]="[
-          {id: '', name: 'Общегражданский'},
-          {id: '', name: 'Заграничный паспорт'}
-          ]" title="Тип паспорта">
+          {id: '1', name: 'Общегражданский'},
+          {id: '2', name: 'Заграничный паспорт'}
+          ]" title="Тип паспорта" [ngxSelected]="[{id: '2', name: 'feww'}]">
           </ngx-devpav-selector>
         </ngx-devpav-padding>
         <ngx-devpav-padding top="20">

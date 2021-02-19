@@ -64,11 +64,15 @@ export class NgxDevpavSelectorComponent implements OnInit {
 
   getHeaderName() {
     let title = '';
-    if (this.ngxSelected) {
-      if (this.ngxSelected.length === 0) {
+    const listOptions = this.ngxSelected
+      ? this.ngxSelected.map(it => it.id).map(value => this.ngxListOptions.find(obj => obj.id === value))
+      : [];
+
+    if (listOptions) {
+      if (listOptions.length === 0) {
         title = this.title;
-      } else if (this.ngxSelected.length === 1) {
-        let name = this.ngxSelected[0].name;
+      } else if (listOptions.length === 1) {
+        let name = listOptions[0].name;
 
         if (name.length > 40) {
           name = name.substring(0, 40);
@@ -78,19 +82,19 @@ export class NgxDevpavSelectorComponent implements OnInit {
         title = name;
       } else {
         const valueList: string[] = [];
-        const count = Math.min(3, this.ngxSelected.length);
+        const count = Math.min(3, listOptions.length);
 
         for (let i = 0; i < count; i++) {
-          valueList.push(this.ngxSelected[i].name);
+          valueList.push(listOptions[i].name);
         }
         title = valueList.join(', ');
 
         let stringTmp = title.substring(0, 40);
 
-        if (this.ngxSelected.length > 3) {
-          stringTmp += ' + ' + (this.ngxSelected.length - ((title.length > 40) ? 0 : 3));
+        if (listOptions.length > 3) {
+          stringTmp += ' + ' + (listOptions.length - ((title.length > 40) ? 0 : 3));
         } else if (title.length > 40) {
-          stringTmp += ' + ' + (this.ngxSelected.length - 1);
+          stringTmp += ' + ' + (listOptions.length - 1);
         }
 
         title = stringTmp;
@@ -101,4 +105,5 @@ export class NgxDevpavSelectorComponent implements OnInit {
 
     return title;
   }
+
 }

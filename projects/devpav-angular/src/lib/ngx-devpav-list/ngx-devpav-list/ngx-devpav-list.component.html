@@ -2,7 +2,7 @@
   <ngx-devpav-loader-container [ngObj]="ngxListOptions">
     <ng-container *ngIf="ngxListOptions as result">
       <ng-template ngFor let-option [ngForOf]="ngxListOptions">
-        <ngx-devpav-list-option (click)="selectEvent($event, option)" [ngxSelected]="selectionModel.isSelected(option)"
+        <ngx-devpav-list-option (click)="selectEvent($event, option)" [ngxSelected]="selectionModel.isSelected(option.id)"
                                 [ngxOption]="option"></ngx-devpav-list-option>
       </ng-template>
       <div style=" font-size: 14px; display: flex; justify-content: center; padding: 12px; align-items: center; width: 100%; box-sizing: border-box;" *ngIf="result.length === 0">

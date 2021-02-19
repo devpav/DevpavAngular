@@ -15,6 +15,7 @@ export * from './lib/ngx-devpav-loader/ngx-devpav-loader.module';
 export * from './lib/ngx-devpav-flop-panel/ngx-devpav-flop-panel.module';
 export * from './lib/ngx-devpav-avatar/ngx-devpav-avatar.module';
 export * from './lib/ngx-devpav-panel/ngx-devpav-panel.module';
+export * from './lib/ngx-devpav-element/ngx-devpav-element.module';
 
 // services
 export * from './lib/ngx-devpav-theme/ngx-devpav-theme.service';

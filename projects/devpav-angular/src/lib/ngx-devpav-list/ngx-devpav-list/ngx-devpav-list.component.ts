@@ -22,7 +22,8 @@ export class NgxDevpavListComponent implements OnInit, OnChanges {
   @Input()
   public ngxSelectedListOptions: ListOption[];
 
-  selectionModel: SelectionModel<ListOption>;
+  selectionModel: SelectionModel<string>;
+
 
   @Output()
   public ngxSelect: EventEmitter<ListOption[]> = new EventEmitter<ListOption[]>();
@@ -32,25 +33,21 @@ export class NgxDevpavListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.selectionModel = new SelectionModel<ListOption>(this.ngxMultiple, this.ngxSelectedListOptions);
+    const selectedListOptions = this.ngxSelectedListOptions ? this.ngxSelectedListOptions.map(it => it.id).filter(object => object) : [];
+    this.selectionModel = new SelectionModel<string>(this.ngxMultiple, selectedListOptions);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    let ngxMultiple = false;
-    if (changes.ngxMultiple) {
-      ngxMultiple = changes.ngxMultiple.currentValue;
-      this.selectionModel = new SelectionModel<ListOption>(ngxMultiple, this.ngxSelectedListOptions);
-    }
-    let ngxSelectedListOptions: ListOption[] = [];
-    if (changes.ngxSelectedListOptions) {
-      ngxSelectedListOptions = changes.ngxSelectedListOptions.currentValue;
-    }
+    const ngxMultiple = !!changes.ngxMultiple ? changes.ngxMultiple.currentValue : false;
+    const selectedListOptions = this.ngxSelectedListOptions ? this.ngxSelectedListOptions.map(it => it.id).filter(object => object) : [];
+    this.selectionModel = new SelectionModel<string>(ngxMultiple, selectedListOptions);
   }
 
-  selectEvent($event: MouseEvent, option) {
-    this.selectionModel.toggle(option);
+  selectEvent($event: MouseEvent, option: ListOption) {
+    this.selectionModel.toggle(option.id);
     const selected = this.selectionModel.selected;
-    console.log(selected);
-    this.ngxSelect.emit(selected);
+    const listOptions = selected.map(id => this.ngxListOptions.find(obj => obj.id === id));
+    this.ngxSelect.emit(listOptions);
   }
+
 }
